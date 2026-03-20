@@ -18,8 +18,8 @@ def import_word_lists():
     word_collections.adjectives_negative = word_collections.import_list("adjectives_negative.txt")
     word_collections.adjectives_neutral = word_collections.import_list("adjectives_neutral.txt")
     word_collections.colours = word_collections.import_list("colours.txt")
-    word_collections.nouns_sfw_singular = word_collections.import_list("nouns_sfw_singular.txt")
-    word_collections.nouns_sfw_plural = word_collections.import_list("nouns_sfw_plural.txt")
+    word_collections.nouns_singular_sfw = word_collections.import_list("nouns_singular_sfw.txt")
+    word_collections.nouns_plural_sfw = word_collections.import_list("nouns_plural_sfw.txt")
     word_collections.people_singular = word_collections.import_list("people_singular.txt")
     word_collections.people_plural = word_collections.import_list("people_plural.txt")
     word_collections.animals_singular = word_collections.import_list("animals_singular.txt")
@@ -27,9 +27,9 @@ def import_word_lists():
     word_collections.food_singular = word_collections.import_list("food_singular.txt")
     word_collections.food_plural = word_collections.import_list("food_plural.txt")
     word_collections.verbs_sfw = word_collections.import_list("verbs_sfw.txt")
-    word_collections.verbs_sfw_intransitive = word_collections.import_list("verbs_sfw_intransitive.txt")
-    word_collections.verbs_sfw_third_person = word_collections.import_list("verbs_sfw_third_person.txt")
-    word_collections.verbs_sfw_active = word_collections.import_list("verbs_sfw_active.txt")
+    word_collections.verbs_intransitive_sfw = word_collections.import_list("verbs_intransitive_sfw.txt")
+    word_collections.verbs_third_person_sfw = word_collections.import_list("verbs_third_person_sfw.txt")
+    word_collections.verbs_active_sfw = word_collections.import_list("verbs_active_sfw.txt")
     word_collections.verbs_ing_sfw = word_collections.import_list("verbs_ing_sfw.txt")
     word_collections.verbs_mandatory_sfw = word_collections.import_list("verbs_mandatory_sfw.txt")
     word_collections.times = word_collections.import_list("times.txt")
@@ -39,12 +39,12 @@ def import_word_lists():
     word_collections.concepts_neutral = word_collections.import_list("concepts_neutral.txt")
     word_collections.concepts_negative = word_collections.import_list("concepts_negative.txt")
     word_collections.concepts_nsfw = word_collections.import_list("concepts_nsfw.txt")
-    word_collections.verbs_sfw_active = word_collections.import_list("verbs_sfw_active.txt")
+    word_collections.verbs_active_sfw = word_collections.import_list("verbs_active_sfw.txt")
     word_collections.nouns_singular_nsfw = word_collections.import_list("nouns_singular_nsfw.txt")
     word_collections.nouns_plural_nsfw = word_collections.import_list("nouns_plural_nsfw.txt")
     word_collections.adjectives_nsfw = word_collections.import_list("adjectives_nsfw.txt")
     word_collections.verbs_nsfw = word_collections.import_list("verbs_nsfw.txt")
-    word_collections.verbs_nsfw_intransitive = word_collections.import_list("verbs_nsfw_intransitive.txt")
+    word_collections.verbs_intransitive_nsfw = word_collections.import_list("verbs_intransitive_nsfw.txt")
     word_collections.verbs_third_person_nsfw = word_collections.import_list("verbs_third_person_nsfw.txt")
     word_collections.verbs_active_nsfw = word_collections.import_list("verbs_active_nsfw.txt")
     word_collections.verbs_ing_nsfw = word_collections.import_list("verbs_ing_nsfw.txt")
@@ -130,6 +130,7 @@ if __name__ == "__main__":
 
             import_word_lists()
             self.settings_changed()
+            self.export_word_lists()
 
         # Define what happens when the button is pressed
         def the_button_was_clicked(self):
@@ -140,7 +141,7 @@ if __name__ == "__main__":
             self.button_export_quotes.setText("Export session quotes")
 
             # Select a random quote function from the list and let it return a quote
-            self.quote = random.choice(function_collection.function_list)()
+            self.quote = random.choice(function_collection.template_list)()
             # Add it to the quote history
             self.quote_history.append(self.quote)
             # Set the selected quote index to this new quote's index
@@ -150,23 +151,23 @@ if __name__ == "__main__":
 
         def settings_changed(self):
             # Set all word collections to neutral
-            word_collections.nouns_singular = word_collections.nouns_sfw_singular + word_collections.people_singular + word_collections.animals_singular + word_collections.verbs_sfw_active + word_collections.food_singular
-            word_collections.nouns_plural = word_collections.animals_plural + word_collections.people_plural + word_collections.nouns_sfw_plural + word_collections.food_plural
+            word_collections.nouns_singular = word_collections.nouns_singular_sfw + word_collections.people_singular + word_collections.animals_singular + word_collections.verbs_active_sfw + word_collections.food_singular
+            word_collections.nouns_plural = word_collections.animals_plural + word_collections.people_plural + word_collections.nouns_plural_sfw + word_collections.food_plural
             word_collections.adjectives = word_collections.adjectives_positive + word_collections.adjectives_neutral
             word_collections.verbs = word_collections.verbs_sfw
-            word_collections.verbs_third_person = word_collections.verbs_sfw_third_person
+            word_collections.verbs_third_person = word_collections.verbs_third_person_sfw
             word_collections.verbs_ing = word_collections.verbs_ing_sfw
-            word_collections.verbs_intransitive = word_collections.verbs_sfw_intransitive
+            word_collections.verbs_intransitive = word_collections.verbs_intransitive_sfw
             word_collections.concepts = word_collections.concepts_neutral + word_collections.concepts_positive
             # Add NSFW
             if self.nsfw_toggle.isChecked():
-                word_collections.nouns_singular = word_collections.nouns_singular + word_collections.nouns_singular_nsfw + word_collections.animals_singular + word_collections.verbs_sfw_active + word_collections.verbs_active_nsfw
+                word_collections.nouns_singular = word_collections.nouns_singular + word_collections.nouns_singular_nsfw + word_collections.animals_singular + word_collections.verbs_active_sfw + word_collections.verbs_active_nsfw
                 word_collections.nouns_plural = word_collections.nouns_plural + word_collections.nouns_plural_nsfw
                 word_collections.adjectives = word_collections.adjectives + word_collections.adjectives_nsfw
                 word_collections.verbs = word_collections.verbs + word_collections.verbs_nsfw
                 word_collections.verbs_third_person = word_collections.verbs_third_person + word_collections.verbs_third_person_nsfw
                 word_collections.verbs_ing = word_collections.verbs_ing + word_collections.verbs_ing_nsfw
-                word_collections.verbs_intransitive = word_collections.verbs_sfw_intransitive + word_collections.verbs_nsfw_intransitive
+                word_collections.verbs_intransitive = word_collections.verbs_intransitive_sfw + word_collections.verbs_intransitive_nsfw
                 word_collections.concepts = word_collections.concepts + word_collections.concepts_nsfw
             # Add negative stuff
             if self.negative_toggle.isChecked():
@@ -217,8 +218,8 @@ if __name__ == "__main__":
             word_collections.export_list(word_collections.adjectives_negative, "adjectives_negative")
             word_collections.export_list(word_collections.adjectives_neutral, "adjectives_neutral")
             word_collections.export_list(word_collections.colours, "colours")
-            word_collections.export_list(word_collections.nouns_sfw_singular, "nouns_sfw_singular")
-            word_collections.export_list(word_collections.nouns_sfw_plural, "nouns_sfw_plural")
+            word_collections.export_list(word_collections.nouns_singular_sfw, "nouns_singular_sfw")
+            word_collections.export_list(word_collections.nouns_plural_sfw, "nouns_plural_sfw")
             word_collections.export_list(word_collections.people_singular, "people_singular")
             word_collections.export_list(word_collections.people_plural, "people_plural")
             word_collections.export_list(word_collections.animals_singular, "animals_singular")
@@ -226,9 +227,9 @@ if __name__ == "__main__":
             word_collections.export_list(word_collections.food_singular, "food_singular")
             word_collections.export_list(word_collections.food_plural, "food_plural")
             word_collections.export_list(word_collections.verbs_sfw, "verbs_sfw")
-            word_collections.export_list(word_collections.verbs_sfw_intransitive, "verbs_sfw_intransitive")
-            word_collections.export_list(word_collections.verbs_sfw_third_person, "verbs_sfw_third_person")
-            word_collections.export_list(word_collections.verbs_sfw_active, "verbs_sfw_active")
+            word_collections.export_list(word_collections.verbs_intransitive_sfw, "verbs_intransitive_sfw")
+            word_collections.export_list(word_collections.verbs_third_person_sfw, "verbs_third_person_sfw")
+            word_collections.export_list(word_collections.verbs_active_sfw, "verbs_active_sfw")
             word_collections.export_list(word_collections.verbs_ing_sfw, "verbs_ing_sfw")
             word_collections.export_list(word_collections.verbs_mandatory_sfw, "verbs_mandatory_sfw")
             word_collections.export_list(word_collections.times, "times")
@@ -238,12 +239,12 @@ if __name__ == "__main__":
             word_collections.export_list(word_collections.concepts_neutral, "concepts_neutral")
             word_collections.export_list(word_collections.concepts_negative, "concepts_negative")
             word_collections.export_list(word_collections.concepts_nsfw, "concepts_nsfw")
-            word_collections.export_list(word_collections.verbs_sfw_active, "verbs_sfw_active")
+            word_collections.export_list(word_collections.verbs_active_sfw, "verbs_active_sfw")
             word_collections.export_list(word_collections.nouns_singular_nsfw, "nouns_singular_nsfw")
             word_collections.export_list(word_collections.nouns_plural_nsfw, "nouns_plural_nsfw")
             word_collections.export_list(word_collections.adjectives_nsfw, "adjectives_nsfw")
             word_collections.export_list(word_collections.verbs_nsfw, "verbs_nsfw")
-            word_collections.export_list(word_collections.verbs_nsfw_intransitive, "verbs_nsfw_intransitive")
+            word_collections.export_list(word_collections.verbs_intransitive_nsfw, "verbs_intransitive_nsfw")
             word_collections.export_list(word_collections.verbs_third_person_nsfw, "verbs_third_person_nsfw")
             word_collections.export_list(word_collections.verbs_active_nsfw, "verbs_active_nsfw")
             word_collections.export_list(word_collections.verbs_ing_nsfw, "verbs_ing_nsfw")
