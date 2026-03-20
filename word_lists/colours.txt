@@ -1,0 +1,17 @@
+amber
+black
+blue
+brown
+green
+indigo
+magenta
+orange
+peach
+pink
+purple
+red
+teal
+turquoise
+violet
+white
+yellow

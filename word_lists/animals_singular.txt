@@ -1,0 +1,27 @@
+ape
+bee
+capybara
+cat
+chicken
+cow
+crocodile
+dog
+dragon
+elephant
+frog
+giraffe
+goat
+guinea pig
+hamster
+heron
+lion
+monkey
+pig
+pigeon
+rabbit
+sheep
+snake
+stork
+tiger
+toad
+wasp

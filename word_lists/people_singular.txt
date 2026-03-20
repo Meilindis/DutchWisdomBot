@@ -1,0 +1,52 @@
+CEO
+HR director
+accountant
+artist
+astronaut
+baker
+bishop
+captain
+coal miner
+dentist
+doctor
+elf
+emperor
+empress
+explorer
+gnome
+goblin
+halfling
+husband
+king
+knight
+landlubber
+leprechaun
+manager
+mayor
+musician
+nurse
+orc
+painter
+pawn
+peasant
+pirate
+prince
+princess
+programmer
+queen
+rocket scientist
+rook
+sailor
+singer
+sorcerer
+sorceress
+supporter
+sweetheart
+teacher
+time traveller
+tinkerer
+weirdo
+whippersnapper
+wife
+witch
+wizard

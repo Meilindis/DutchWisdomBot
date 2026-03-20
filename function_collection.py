@@ -1,6 +1,13 @@
 import random
 import word_collections
 
+def rule():
+    result = (random.randrange(1, 10, 1))
+    if result !=1:
+        return ""
+    else:
+        return ("Rule " + str(random.randrange(1, 13, 1)) + ":\n")
+
 # Repeat a random verb three times
 def function_times_three():
     current_verb = random.choice(word_collections.verbs)
@@ -29,7 +36,7 @@ def function_one_compliment():
 
 # General statement
 def function_general():
-    return ("Being " + random.choice(word_collections.adjectives) + " is " + random.choice(word_collections.adjectives))
+    return (rule() + "Being " + random.choice(word_collections.adjectives) + " is " + random.choice(word_collections.adjectives))
 
 # Surprise
 def function_surprise_singular():
@@ -53,7 +60,7 @@ def function_it_does():
 
 # Sharing is caring
 def function_share():
-    return (random.choice(word_collections.audiences).capitalize() + "you are " + random.choice(word_collections.adjectives) + " and " + random.choice(word_collections.adjectives))
+    return (rule() + random.choice(word_collections.audiences).capitalize() + "you are " + random.choice(word_collections.adjectives) + " and " + random.choice(word_collections.adjectives))
 
 # Oh you
 def function_you():
@@ -69,7 +76,7 @@ def function_can_be():
 
 # No sorry
 def function_no_sorry():
-    return ("Don't apologise for being " + random.choice(word_collections.adjectives))
+    return (rule() + "Don't apologise for being " + random.choice(word_collections.adjectives))
 
 # Reasons
 def function_reasons():
@@ -86,11 +93,11 @@ def function_truth():
 # Change
 def function_change():
     current_noun = random.choice(word_collections.nouns_singular)
-    return ("Don't be a " + random.choice(word_collections.adjectives) + " " + current_noun + ".\nBe a " + random.choice(word_collections.adjectives) + " " + current_noun + ".")
+    return (rule() + "Don't be a " + random.choice(word_collections.adjectives) + " " + current_noun + ".\nBe a " + random.choice(word_collections.adjectives) + " " + current_noun + ".")
     
 # Possibilities
 def function_possible():
-	return ("If we can " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural) + ", we can " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
+	return (rule() + "If we can " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural) + ", we can " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
 
 # Effect
 def function_effect():
@@ -98,15 +105,15 @@ def function_effect():
 
 # Encouragement
 def function_encouragement():
-	return ("Challenge " + random.choice(word_collections.nouns_plural) + " and act " + random.choice(word_collections.adverbs) + ".")
+	return (rule() + "Challenge " + random.choice(word_collections.nouns_plural) + " and act " + random.choice(word_collections.adverbs) + ".")
 
 # Strangely true
 def function_strangely_true():
-    return ("Just because you're a " + random.choice(word_collections.nouns_singular) + " it doesn't mean you're a " + random.choice(word_collections.nouns_singular))
+    return (rule() + "Just because you're a " + random.choice(word_collections.nouns_singular) + " it doesn't mean you're a " + random.choice(word_collections.nouns_singular))
 
 # Really
 def function_really():
-    return (random.choice(word_collections.nouns_plural + word_collections.concepts).capitalize() + "\nActually good for " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+    return (rule() + random.choice(word_collections.nouns_plural + word_collections.concepts).capitalize() + "\nActually good for " + random.choice(word_collections.nouns_plural + word_collections.concepts))
 
 # Explanation
 def function_explanation():
@@ -114,7 +121,7 @@ def function_explanation():
 
 # No need
 def function_no_need():
-    return ("You don't need " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
+    return (rule() + "You don't need " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
 
 # Potential
 def function_potential():
@@ -126,7 +133,7 @@ def function_results():
 
 # Causation
 def function_causation():
-    return (random.choice(word_collections.verbs_ing).capitalize() + " " + random.choice(word_collections.adjectives) + " can cause " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+    return ("Being " + random.choice(word_collections.adjectives) + " can cause " + random.choice(word_collections.nouns_plural + word_collections.concepts))
 
 # Two needs
 def function_two_needs():
@@ -138,7 +145,7 @@ def function_maybe():
 
 # Orders
 def function_orders():
-    return ("They can order you to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural) + ", but they can't order you to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
+    return (rule() + "They can order you to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural) + ", but they can't order you to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
 
 # Family
 def function_family():
@@ -150,11 +157,16 @@ def function_true():
 
 # Right
 def function_right():
-    return ("Pursue what is " + random.choice(word_collections.adjectives) + " instead of what is " + random.choice(word_collections.verbs_ing) + " you " + random.choice(word_collections.adjectives))
+    return (rule() + "Pursue what is " + random.choice(word_collections.adjectives) + " instead of what is making you " + random.choice(word_collections.adjectives))
     
 # Personality
 def function_personality():
 	return ("You are a " + random.choice(word_collections.nouns_singular) + " " + random.choice(word_collections.people_singular))
+
+# The best
+def function_the_best():
+    selected_word = random.choice(word_collections.nouns_singular)
+    return (rule() + "The best " + selected_word + " is a " + random.choice(word_collections.adjectives) + " " + selected_word)
 
 # List of defined functions (don't forget to add new functions here!)
 function_list = [function_times_three, 
@@ -194,5 +206,6 @@ function_list = [function_times_three,
                  function_family,
                  function_true,
                  function_right,
-                 function_personality]
+                 function_personality,
+                 function_the_best]
 

@@ -2,6 +2,7 @@
 import sys
 import os
 import random
+from pathlib import Path
 
 # A file containing lists of words to be used in quotes, sorted by type
 import word_collections
@@ -91,6 +92,8 @@ if __name__ == "__main__":
             self.quote_history = []
             self.selected_quote = 0
 
+            # word_collections.import_word_lists()
+
         # Define what happens when the button is pressed
         def the_button_was_clicked(self):
             # Set the selected quote to the last one (in case the user was looking at an earlier quote)
@@ -170,6 +173,43 @@ if __name__ == "__main__":
                     f.write(f"{quote}\n\n---\n\n")
 
             self.button_export_quotes.setText("Exported!")
+
+        def export_word_lists(self):
+            # Export every word list and make sure the words are in alphabetical order
+            word_collections.export_list(word_collections.adjectives_positive, "adjectives_positive")
+            word_collections.export_list(word_collections.adjectives_negative, "adjectives_negative")
+            word_collections.export_list(word_collections.adjectives_neutral, "adjectives_neutral")
+            word_collections.export_list(word_collections.colours, "colours")
+            word_collections.export_list(word_collections.nouns_sfw_singular, "nouns_sfw_singular")
+            word_collections.export_list(word_collections.nouns_sfw_plural, "nouns_sfw_plural")
+            word_collections.export_list(word_collections.people_singular, "people_singular")
+            word_collections.export_list(word_collections.people_plural, "people_plural")
+            word_collections.export_list(word_collections.animals_singular, "animals_singular")
+            word_collections.export_list(word_collections.animals_plural, "animals_plural")
+            word_collections.export_list(word_collections.food_singular, "food_singular")
+            word_collections.export_list(word_collections.food_plural, "food_plural")
+            word_collections.export_list(word_collections.verbs_sfw, "verbs_sfw")
+            word_collections.export_list(word_collections.verbs_sfw_intransitive, "verbs_sfw_intransitive")
+            word_collections.export_list(word_collections.verbs_sfw_third_person, "verbs_sfw_third_person")
+            word_collections.export_list(word_collections.verbs_sfw_active, "verbs_sfw_active")
+            word_collections.export_list(word_collections.verbs_ing_sfw, "verbs_ing_sfw")
+            word_collections.export_list(word_collections.verbs_mandatory_sfw, "verbs_mandatory_sfw")
+            word_collections.export_list(word_collections.times, "times")
+            word_collections.export_list(word_collections.audiences, "audiences")
+            word_collections.export_list(word_collections.adverbs, "adverbs")
+            word_collections.export_list(word_collections.concepts_positive, "concepts_positive")
+            word_collections.export_list(word_collections.concepts_neutral, "concepts_neutral")
+            word_collections.export_list(word_collections.concepts_negative, "concepts_negative")
+            word_collections.export_list(word_collections.concepts_nsfw, "concepts_nsfw")
+            word_collections.export_list(word_collections.verbs_sfw_active, "verbs_sfw_active")
+            word_collections.export_list(word_collections.nouns_singular_nsfw, "nouns_singular_nsfw")
+            word_collections.export_list(word_collections.nouns_plural_nsfw, "nouns_plural_nsfw")
+            word_collections.export_list(word_collections.adjectives_nsfw, "adjectives_nsfw")
+            word_collections.export_list(word_collections.verbs_nsfw, "verbs_nsfw")
+            word_collections.export_list(word_collections.verbs_nsfw_intransitive, "verbs_nsfw_intransitive")
+            word_collections.export_list(word_collections.verbs_third_person_nsfw, "verbs_third_person_nsfw")
+            word_collections.export_list(word_collections.verbs_active_nsfw, "verbs_active_nsfw")
+            word_collections.export_list(word_collections.verbs_ing_nsfw, "verbs_ing_nsfw")
 
     app = QApplication(sys.argv)
 

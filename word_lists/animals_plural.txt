@@ -1,0 +1,27 @@
+apes
+bees
+capybaras
+cats
+chickens
+cows
+crocodiles
+dogs
+dragons
+elephants
+frogs
+giraffes
+goats
+guinea pigs
+hamsters
+herons
+lions
+monkeys
+pigeons
+pigs
+rabbits
+sheep
+snakes
+storks
+tigers
+toads
+wasps

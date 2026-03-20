@@ -1,0 +1,6 @@
+always
+never
+occasionally
+often
+rarely
+sometimes
