@@ -8,7 +8,7 @@ def function_times_three():
 
 # Produce 3 random verbs
 def function_three_verbs():
-    return (random.choice(word_collections.verbs).capitalize() + "\n" + random.choice(word_collections.verbs).capitalize() + "\n" + random.choice(word_collections.verbs).capitalize())
+    return (random.choice(word_collections.verbs + word_collections.verbs_sfw_intransitive).capitalize() + "\n" + random.choice(word_collections.verbs + word_collections.verbs_sfw_intransitive).capitalize() + "\n" + random.choice(word_collections.verbs + word_collections.verbs_sfw_intransitive).capitalize())
     
 # Row, row, row your boat
 def function_row():
@@ -17,7 +17,7 @@ def function_row():
 
 # Give three random compliments
 def function_three_compliments():
-    return ("You are " + random.choice(word_collections.adjectives_positive) + "\nYou are " + random.choice(word_collections.adjectives_positive) + "\nYou are " + random.choice(word_collections.adjectives_positive))
+    return ("You are " + random.choice(word_collections.positive_adjectives) + "\nYou are " + random.choice(word_collections.positive_adjectives) + "\nYou are " + random.choice(word_collections.positive_adjectives))
 
 # Give three random characteristics:
 def function_three_characteristics():
@@ -25,7 +25,7 @@ def function_three_characteristics():
 
 # Give one random compliment
 def function_one_compliment():
-    return (random.choice(word_collections.times).capitalize() + " forget that you are " + random.choice(word_collections.adjectives_positive))
+    return (random.choice(word_collections.times).capitalize() + " forget that you are " + random.choice(word_collections.positive_adjectives))
 
 # General statement
 def function_general():
@@ -119,38 +119,10 @@ def function_no_need():
 # Potential
 def function_potential():
     return ("You have the potential to become a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
-
-# Results
-def function_results():
-    return (random.choice(word_collections.concepts).capitalize() + " can end in " + random.choice(word_collections.concepts))
-
-# Causation
-def function_causation():
-    return (random.choice(word_collections.verbs_sfw_active) + " can cause " + random.choice(word_collections.adjectives + " " + random.choice(word_collections.nouns_plural + word_collections.concepts)))
-
-# Two needs
-def function_two_needs():
-    return ("The two things you need in order to live " + random.choice(word_collections.adverbs) + " are " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " and " + random.choice(word_collections.nouns_plural + word_collections.concepts))
-
-# Maybe?
-def function_maybe():
-    return ("Maybe " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " can turn into " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " when you get older?")
-
-# Orders
-def function_orders():
-    return ("They can order you to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural) + ", but they can't order you to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
-
-# Family
-def function_family():
-    return ("Being part of a family is pretty much like " + random.choice(word_collections.verbs_ing) + " your " + random.choice(word_collections.nouns_singular + word_collections.nouns_plural + word_collections.concepts))
-
-# Truth
-def function_truth():
-    return (random.choice(word_collections.nouns_plural).capitalize() + " are the " + random.choice(word_collections.concepts) + " of all that is " + random.choice(word_collections.adjectives))
-
-# Right
-def function_right():
-    return ("Pursue what is " + random.choice(word_collections.adjectives) + " instead of what is " + random.choice(word_collections.verbs_ing) + " you " + random.choice(word_collections.adjectives))
+    
+# The best
+def function_best_way():
+	return ("The best way to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural) + " is through " + random.choice(word_collections.concepts))
 
 # List of defined functions (don't forget to add new functions here!)
 function_list = [function_times_three, 
@@ -182,12 +154,5 @@ function_list = [function_times_three,
                  function_explanation,
                  function_no_need,
                  function_potential,
-                 function_results,
-                 function_causation,
-                 function_two_needs,
-                 function_maybe,
-                 function_orders,
-                 function_family,
-                 function_truth,
-                 function_right]
+                 function_best_way]
 

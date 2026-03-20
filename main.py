@@ -27,7 +27,7 @@ if __name__ == "__main__":
             self.button = QPushButton("Give me some wisdom!")
             self.button.setCheckable(True)
             self.button.clicked.connect(self.the_button_was_clicked)
-            self.button.setStyleSheet('height: 50px; background-color: #b0cceb; color: black; text-align: center;')
+            self.button.setStyleSheet('height: 80px; background-color: #b0cceb; color: black; text-align: center;')
 
             # Field that displays the generated quote
             self.quote_field = QTextEdit()
@@ -72,9 +72,9 @@ if __name__ == "__main__":
             nav_container.setLayout(layoutH)
 
             # Arrange all elements vertically
-            layoutV = QVBoxLayout()
-            layoutV.addWidget(self.button)
+            layoutV = QVBoxLayout()       
             layoutV.addWidget(self.quote_field)
+            layoutV.addWidget(self.button)
             layoutV.addWidget(nav_container)
             layoutV.addWidget(self.positive_toggle)
             layoutV.addWidget(self.negative_toggle)
@@ -110,28 +110,33 @@ if __name__ == "__main__":
 
         def settings_changed(self):
             # Set all word collections to neutral
-            word_collections.nouns_singular = word_collections.neutral_nouns_singular + word_collections.people_singular + word_collections.animals_singular + word_collections.verbs_active
-            word_collections.nouns_plural = word_collections.animals_plural + word_collections.people_plural + word_collections.neutral_nouns_plural
-            word_collections.adjectives = word_collections.positive_adjectives + word_collections.neutral_adjectives
-            word_collections.verbs = word_collections.neutral_verbs
-            word_collections.verbs_3p = word_collections.verbs_third_person
-            word_collections.verbs_ing = word_collections.verbs_ing_neutral
+            word_collections.nouns_singular = word_collections.nouns_sfw_singular + word_collections.people_singular + word_collections.animals_singular + word_collections.verbs_sfw_active + word_collections.food_singular
+            word_collections.nouns_plural = word_collections.animals_plural + word_collections.people_plural + word_collections.nouns_sfw_plural + word_collections.food_plural
+            word_collections.adjectives = word_collections.adjectives_positive + word_collections.adjectives_neutral
+            word_collections.verbs = word_collections.verbs_sfw
+            word_collections.verbs_third_person = word_collections.verbs_sfw_third_person
+            word_collections.verbs_ing = word_collections.verbs_ing_sfw
+            word_collections.verbs_intransitive = word_collections.verbs_sfw_intransitive
+            word_collections.concepts = word_collections.concepts_neutral + word_collections.concepts_positive
             # Add NSFW
             if self.nsfw_toggle.isChecked():
-                word_collections.nouns_singular = word_collections.nouns_singular + word_collections.nsfw_nouns_singular + word_collections.animals_singular + word_collections.verbs_active + word_collections.nsfw_verbs_active
-                word_collections.nouns_plural = word_collections.animals_plural + word_collections.people_plural + word_collections.neutral_nouns_plural + word_collections.nsfw_nouns_plural
-                word_collections.adjectives = word_collections.positive_adjectives + word_collections.neutral_adjectives + word_collections.nsfw_adjectives
-                word_collections.verbs = word_collections.verbs + word_collections.nsfw_verbs
-                word_collections.verbs_3p = word_collections.verbs_third_person + word_collections.nsfw_verbs_third_person
-                word_collections.verbs_ing = word_collections.verbs_ing_neutral + word_collections.nsfw_verbs_ing
+                word_collections.nouns_singular = word_collections.nouns_singular + word_collections.nouns_singular_nsfw + word_collections.animals_singular + word_collections.verbs_sfw_active + word_collections.verbs_active_nsfw
+                word_collections.nouns_plural = word_collections.nouns_plural + word_collections.nouns_plural_nsfw
+                word_collections.adjectives = word_collections.adjectives + word_collections.adjectives_nsfw
+                word_collections.verbs = word_collections.verbs + word_collections.verbs_nsfw
+                word_collections.verbs_third_person = word_collections.verbs_third_person + word_collections.verbs_third_person_nsfw
+                word_collections.verbs_ing = word_collections.verbs_ing + word_collections.verbs_ing_nsfw
+                word_collections.verbs_intransitive = word_collections.verbs_sfw_intransitive + word_collections.verbs_nsfw_intransitive
+                word_collections.concepts = word_collections.concepts + word_collections.concepts_nsfw
             # Add negative stuff
             if self.negative_toggle.isChecked():
-                word_collections.adjectives = word_collections.adjectives + word_collections.negative_adjectives
+                word_collections.adjectives = word_collections.adjectives + word_collections.adjectives_negative
+                word_collections.concepts = word_collections.concepts + word_collections.concepts_negative
                 # You cannot select both negative and positive
                 self.positive_toggle.setChecked(False)
             # Remove anything but positive
             if self.positive_toggle.isChecked():
-                word_collections.adjectives = word_collections.positive_adjectives
+                word_collections.adjectives = word_collections.adjectives_positive
                 # You cannot select both negative and positive
                 self.negative_toggle.setChecked(False)
 
