@@ -143,7 +143,7 @@ def template_two_needs():
 
 # Maybe?
 def template_maybe():
-    return ("Maybe " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " can turn into " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " when you get older?")
+    return ("Maybe " + random.choice(word_collections.nouns_plural + word_collections.concepts).capitalize() + " can turn into " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " when you get older?")
 
 # Orders
 def template_orders():
@@ -151,7 +151,7 @@ def template_orders():
 
 # Family
 def template_family():
-    return (random.choice(word_collections.situations) + " is pretty much like " + random.choice(word_collections.verbs_ing) + " your " + random.choice(word_collections.nouns_singular + word_collections.nouns_plural + word_collections.concepts))
+    return (random.choice(word_collections.situations).capitalize() + " is pretty much like " + random.choice(word_collections.verbs_ing) + " your " + random.choice(word_collections.nouns_singular + word_collections.nouns_plural + word_collections.concepts))
 
 # Truth
 def template_true():
@@ -192,7 +192,11 @@ def template_you_superlative():
 
 # Never
 def template_never():
-    return (rule() + random.choice(word_collections.times) + " stop " + random.choice(word_collections.situations))
+    return (rule() + random.choice(word_collections.times).capitalize() + " stop " + random.choice(word_collections.situations))
+
+# Needs
+def template_need():
+    return (random.choice(word_collections.times).capitalize() + " you just need a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
 
 # List of defined tepmlates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
@@ -239,5 +243,6 @@ template_list = [function_times_three,
                  template_watch_out,
                  template_higher,
                  template_you_superlative,
-                 template_never]
+                 template_never,
+                 template_need]
 
