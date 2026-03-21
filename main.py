@@ -52,6 +52,8 @@ def import_word_lists():
     word_collections.comparatives_nsfw = word_collections.import_list("comparatives_nsfw.txt")
     word_collections.superlatives_sfw = word_collections.import_list("superlatives_sfw.txt")
     word_collections.superlatives_nsfw = word_collections.import_list("superlatives_nsfw.txt")
+    word_collections.situations_sfw = word_collections.import_list("situations_sfw.txt")
+    word_collections.situations_nsfw = word_collections.import_list("situations_nsfw.txt")
 
 
 if __name__ == "__main__":
@@ -137,7 +139,7 @@ if __name__ == "__main__":
             import_word_lists()
             self.settings_changed()
             self.updatestylesheet()
-            # self.export_word_lists() # Only enable when you have added new words to the lists and want to alphabetise them.
+            self.export_word_lists() # Only enable when you have added new words to the lists and want to alphabetise them.
 
         # Define what happens when the button is pressed
         def the_button_was_clicked(self):
@@ -168,6 +170,7 @@ if __name__ == "__main__":
             word_collections.concepts = word_collections.concepts_neutral + word_collections.concepts_positive
             word_collections.comparatives = word_collections.comparatives_sfw
             word_collections.superlatives = word_collections.superlatives_sfw
+            word_collections.situations = word_collections.situations_sfw
             # Add NSFW
             if self.nsfw_toggle.isChecked():
                 word_collections.nouns_singular = word_collections.nouns_singular + word_collections.nouns_singular_nsfw + word_collections.animals_singular + word_collections.verbs_active_sfw + word_collections.verbs_active_nsfw
@@ -181,6 +184,7 @@ if __name__ == "__main__":
                 word_collections.adjectives = word_collections.adjectives + word_collections.comparatives_nsfw
                 word_collections.comparatives = word_collections.comparatives + word_collections.comparatives_nsfw
                 word_collections.superlatives = word_collections.superlatives + word_collections.superlatives_nsfw
+                word_collections.situations = word_collections.situations + word_collections.situations_nsfw
             # Add negative stuff
             if self.negative_toggle.isChecked():
                 word_collections.adjectives = word_collections.adjectives + word_collections.adjectives_negative
@@ -264,6 +268,8 @@ if __name__ == "__main__":
             word_collections.export_list(word_collections.comparatives_nsfw, "comparatives_nsfw")
             word_collections.export_list(word_collections.superlatives_sfw, "superlatives_sfw")
             word_collections.export_list(word_collections.superlatives_nsfw, "superlatives_nsfw")
+            word_collections.export_list(word_collections.situations_sfw, "situations_sfw")
+            word_collections.export_list(word_collections.situations_nsfw, "situations_nsfw")
 
 
     app = QApplication(sys.argv)

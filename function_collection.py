@@ -151,7 +151,7 @@ def template_orders():
 
 # Family
 def template_family():
-    return ("Being part of a family is pretty much like " + random.choice(word_collections.verbs_ing) + " your " + random.choice(word_collections.nouns_singular + word_collections.nouns_plural + word_collections.concepts))
+    return (random.choice(word_collections.situations) + " is pretty much like " + random.choice(word_collections.verbs_ing) + " your " + random.choice(word_collections.nouns_singular + word_collections.nouns_plural + word_collections.concepts))
 
 # Truth
 def template_true():
@@ -189,6 +189,10 @@ def template_higher():
 # More you
 def template_you_superlative():
     return ("You can be the " + random.choice(word_collections.superlatives) + " " + random.choice(word_collections.nouns_singular))
+
+# Never
+def template_never():
+    return (rule() + random.choice(word_collections.times) + " stop " + random.choice(word_collections.situations))
 
 # List of defined tepmlates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
@@ -234,5 +238,6 @@ template_list = [function_times_three,
                  template_judgement,
                  template_watch_out,
                  template_higher,
-                 template_you_superlative]
+                 template_you_superlative,
+                 template_never]
 
