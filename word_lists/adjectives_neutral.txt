@@ -1,3 +1,4 @@
+bland
 bright
 capable
 domesticated
@@ -8,6 +9,7 @@ elaborate
 erratic
 fast
 fierce
+fluent
 high
 indestructible
 low
@@ -15,13 +17,20 @@ mediocre
 neutral
 normal
 odd
+old
 practical
+quick
 reasonable
 rich
 self-contradictory
 sensitive
 slow
+spicy
 strange
+strong
+tough
 tricky
+weak
 weird
 wet
+wise

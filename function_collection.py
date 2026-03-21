@@ -54,7 +54,7 @@ def template_call_to_action():
 
 # Spread the word
 def template_spread_the_word():
-    return (random.choice(word_collections.audiences).capitalize() + "you are " + random.choice(word_collections.adjectives) + ".\nStay " + random.choice(word_collections.adjectives) + ".")
+    return (random.choice(word_collections.audiences).capitalize() + " you are " + random.choice(word_collections.adjectives) + ".\nStay " + random.choice(word_collections.adjectives) + ".")
 
 # Definition
 def template_it_does():
@@ -62,7 +62,7 @@ def template_it_does():
 
 # Sharing is caring
 def template_share():
-    return (rule() + random.choice(word_collections.audiences).capitalize() + "you are " + random.choice(word_collections.adjectives) + " and " + random.choice(word_collections.adjectives))
+    return (rule() + random.choice(word_collections.audiences).capitalize() + " you are " + random.choice(word_collections.adjectives) + " and " + random.choice(word_collections.adjectives))
 
 # Oh you
 def template_you():
@@ -119,7 +119,7 @@ def template_really():
 
 # Explanation
 def template_explanation():
-    return (random.choice(word_collections.nouns_plural).capitalize() + " are not trying to " + random.choice(word_collections.verbs) + ", they are just trying to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.concepts))
+    return (random.choice(word_collections.nouns_plural).capitalize() + " are not trying to " + random.choice(word_collections.verbs_intransitive) + ", they are just trying to " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.concepts))
 
 # No need
 def template_no_need():
@@ -173,6 +173,14 @@ def function_the_best():
 # Just be
 def template_be():
     return ("Be a " + random.choice(word_collections.nouns_singular_sfw) + "\nBe " + random.choice(word_collections.adjectives) + "\nBe a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular_sfw))
+    
+# Judgement
+def template_judgement():
+	return (random.choice(word_collections.nouns_plural).capitalize() + " are " + random.choice(word_collections.times) + " " + random.choice(word_collections.adjectives))
+
+# Watch out!
+def template_watch_out():
+	return (random.choice(word_collections.nouns_plural).capitalize() + " are coming for you!")
 
 # List of defined tepmlates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
@@ -214,5 +222,7 @@ template_list = [function_times_three,
                  template_right,
                  template_personality,
                  function_the_best,
-                 template_be]
+                 template_be,
+                 template_judgement,
+                 template_watch_out]
 

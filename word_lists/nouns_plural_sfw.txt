@@ -48,7 +48,7 @@ planets
 plates
 robots
 rockets
-sea
+seas
 sewing machines
 skirts
 spoons
