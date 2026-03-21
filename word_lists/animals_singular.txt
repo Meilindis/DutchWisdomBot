@@ -1,7 +1,9 @@
 ape
+badger
 bee
 capybara
 cat
+cheetah
 chicken
 cow
 crocodile
@@ -13,15 +15,19 @@ giraffe
 goat
 guinea pig
 hamster
+hedgehog
 heron
 lion
+lynx
 monkey
 owl
+parrot
 pig
 pigeon
 rabbit
 sheep
 snake
+squirrel
 stork
 tiger
 toad
