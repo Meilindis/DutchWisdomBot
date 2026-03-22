@@ -28,6 +28,7 @@ chocolates
 clothes
 clouds
 clown cars
+coats
 comedies
 computers
 cups
@@ -75,6 +76,7 @@ scissors
 seas
 sewing machines
 skirts
+spirals
 spoons
 stamp collections
 stars

@@ -22,6 +22,7 @@ hamsters
 hedgehogs
 herons
 hyenas
+kittens
 lions
 lynxes
 monkeys
@@ -29,6 +30,7 @@ owls
 parrots
 pigeons
 pigs
+puppies
 rabbits
 sheep
 snakes

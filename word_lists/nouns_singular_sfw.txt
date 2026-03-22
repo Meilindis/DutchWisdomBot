@@ -34,6 +34,7 @@ chest
 chocolate
 cloud
 clown car
+coat
 coffee
 comedy
 computers
@@ -87,6 +88,7 @@ sea
 sewing machine
 skirt
 slide
+spiral
 spoon
 staircase
 stamp collection

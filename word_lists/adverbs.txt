@@ -12,8 +12,9 @@ directly
 ferociously
 happily
 harshly
+heavily
 highly
-wholly
+hilariously
 horribly
 impressively
 inadvertently
@@ -21,8 +22,11 @@ indubitably
 inevitably
 interestingly
 jokingly
+largely
+lightly
 lovingly
 masterfully
+mildly
 miserably
 nobly
 orderly
@@ -36,5 +40,6 @@ shamefully
 silently
 terribly
 unwittingly
+wholly
 wistfully
 wonderfully
