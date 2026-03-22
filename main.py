@@ -116,7 +116,7 @@ if __name__ == "__main__":
             # Set all word collections to neutral
             word_collections.nouns_singular = word_collections.nouns_singular_sfw + word_collections.people_singular + word_collections.animals_singular + word_collections.verbs_active_sfw + word_collections.food_singular
             word_collections.nouns_plural = word_collections.animals_plural + word_collections.people_plural + word_collections.nouns_plural_sfw + word_collections.food_plural
-            word_collections.adjectives = word_collections.adjectives_positive + word_collections.adjectives_neutral + word_collections.comparatives_sfw
+            word_collections.adjectives = word_collections.adjectives_positive + word_collections.adjectives_neutral
             word_collections.verbs = word_collections.verbs_sfw
             word_collections.verbs_third_person = word_collections.verbs_third_person_sfw
             word_collections.verbs_ing = word_collections.verbs_ing_sfw

@@ -210,6 +210,14 @@ def template_day():
 def template_llap():
     return (rule() + random.choice(word_collections.verbs).capitalize() + " " + random.choice(word_collections.adjectives) + " and " + random.choice(word_collections.verbs + word_collections.verbs_intransitive))
 
+# Why?
+def template_why():
+    return ("why stop " + random.choice(word_collections.verbs_ing) + " if you're " + random.choice(word_collections.adjectives) + "?")
+
+# Never
+def template_never():
+    return (rule() + "Never " + random.choice(word_collections.verbs_intransitive) + " unless you're willing to " + random.choice(word_collections.verbs + word_collections.verbs_intransitive))
+
 # List of defined tepmlates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
                  template_three_compliments, 
@@ -259,5 +267,7 @@ template_list = [function_times_three,
                  template_need,
                  template_must,
                  template_day,
-                 template_llap]
+                 template_llap,
+                 template_why,
+                 template_never]
 
