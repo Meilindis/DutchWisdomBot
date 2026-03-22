@@ -38,8 +38,6 @@ nurse
 orc
 painter
 pawn
-people pleaser
-peasant
 pilot
 pirate
 pope

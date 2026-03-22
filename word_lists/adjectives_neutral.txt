@@ -1,8 +1,6 @@
 bland
 bright
-bronze
 capable
-copper
 domesticated
 dry
 easy
@@ -16,11 +14,12 @@ gold
 golden
 high
 indestructible
-iron
 long
 low
 loud
 mediocre
+mischievous
+naughty
 neutral
 normal
 odd

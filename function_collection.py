@@ -42,15 +42,15 @@ def template_general():
 
 # Surprise
 def template_surprise_singular():
-    return ("Here comes the " + random.choice(word_collections.people_singular) + "!")
+    return ("Here comes the " + random.choice(word_collections.people_singular_sfw) + "!")
     
 # Surprise 2
 def template_surprise_plural():
-    return ("Here come the " + random.choice(word_collections.people_plural) + "!")
+    return ("Here come the " + random.choice(word_collections.people_plural_sfw) + "!")
 
 # Call to action
 def template_call_to_action():
-    return (random.choice(word_collections.people_plural).capitalize() + ", rise up!")
+    return (random.choice(word_collections.people_plural_sfw).capitalize() + ", rise up!")
 
 # Spread the word
 def template_spread_the_word():
@@ -163,7 +163,7 @@ def template_right():
     
 # Personality
 def template_personality():
-	return ("You are a " + random.choice(word_collections.nouns_singular) + " " + random.choice(word_collections.people_singular))
+	return ("You are a " + random.choice(word_collections.nouns_singular) + " " + random.choice(word_collections.people_singular_sfw))
 
 # The best
 def function_the_best():
@@ -196,7 +196,7 @@ def template_never():
 
 # Needs
 def template_need():
-    return (random.choice(word_collections.times).capitalize() + " you just need a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
+    return (rule() + "You just need a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
 
 # You must
 def template_must():
@@ -212,7 +212,7 @@ def template_llap():
 
 # Why?
 def template_why():
-    return ("why stop " + random.choice(word_collections.verbs_ing) + " if you're " + random.choice(word_collections.adjectives) + "?")
+    return ("Why stop " + random.choice(word_collections.verbs_ing) + " if you're " + random.choice(word_collections.adjectives) + "?")
 
 # Never
 def template_never():
@@ -220,7 +220,7 @@ def template_never():
 
 # Excuse me
 def template_excuse():
-    return ("Excuse me\n What does a " + random.choice(word_collections.people_singular) + " want with a " + random.choice(word_collections.nouns_singular) + "?")
+    return ("Excuse me\nWhat does a " + random.choice(word_collections.people_singular_sfw) + " want with a " + random.choice(word_collections.nouns_singular) + "?")
 
 # Outweigh
 def template_outweigh():

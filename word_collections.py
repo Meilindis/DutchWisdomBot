@@ -7,8 +7,10 @@ adjectives_negative = []
 colours = []
 nouns_singular_sfw = []
 nouns_plural_sfw = []
-people_singular = []
-people_plural = []
+people_singular_sfw = []
+people_plural_sfw = []
+people_singular_neg = []
+people_plural_neg = []
 animals_singular = []
 animals_plural = []
 food_singular = []
@@ -44,7 +46,7 @@ prepositions = []
  
 
 nouns_singular = nouns_singular_sfw + animals_singular + verbs_active_sfw + food_singular
-nouns_plural = animals_plural + people_plural + nouns_plural_sfw + food_plural
+nouns_plural = animals_plural + people_plural_sfw + nouns_plural_sfw + food_plural
 adjectives = adjectives_positive + adjectives_neutral + comparatives_sfw
 verbs = verbs_sfw
 verbs_third_person = verbs_third_person_sfw
@@ -54,6 +56,8 @@ concepts = concepts_neutral + concepts_positive
 comparatives = comparatives_sfw
 superlatives = superlatives_sfw
 situations = situations_sfw
+people_singular = people_singular_sfw
+people_plural = people_plural_sfw
   
 
 def import_list(filename):

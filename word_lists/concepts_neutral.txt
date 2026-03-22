@@ -3,12 +3,14 @@ agency
 alcohol
 anything
 art
+bronze
 chaos
 checkmate
 chess
 cinnamon
 coffee
 communism
+copper
 cream
 darkness
 earl grey
@@ -23,6 +25,7 @@ ginger
 glitter
 harmony
 honey
+iron
 je ne sais quoi
 juice
 justice

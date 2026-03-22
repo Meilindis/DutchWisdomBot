@@ -38,8 +38,6 @@ nurses
 orcs
 painters
 pawns
-people pleasers
-peasants
 pilots
 pirates
 popes
