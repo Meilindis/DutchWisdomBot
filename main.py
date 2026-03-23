@@ -21,6 +21,7 @@ from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QVBoxLayout, QWidget, QLabel, QCheckBox, QHBoxLayout
 
+font_collection = ['unifont-17.0.04.otf', 'GalaferaMedium-V4xze.ttf', 'ShadeBlue-2OozX.ttf', 'PlayfulTime-BLBB8.ttf', 'LoveDays-2v7Oe.ttf']
 
 if __name__ == "__main__":
     class MainWindow(QMainWindow):
@@ -38,10 +39,20 @@ if __name__ == "__main__":
             self.button.clicked.connect(self.the_button_was_clicked)
             self.button.setStyleSheet('height: 80px; background-color: #b0cceb; color: black; text-align: center;')
 
-            # Field that displays the generated quote
-            self.quote_field = QLabel()
+            # Label that displays the generated quote image
+            self.quote_area = QLabel()
+            self.quote_area.setStyleSheet('background-color: black; color: white;')
+            self.quote_area.resize(500, 500)
+            current_dir = Path(__file__).parent.absolute()
+            pixmap = QPixmap(os.path.join(current_dir, os.path.join('images','bot.png')))
+            self.quote_area.resize(pixmap.width(), pixmap.height())
+            self.quote_area.setPixmap(pixmap)
+
+            # Field that displays the generated quote in text only
+            self.quote_field = QTextEdit()
             self.quote_field.setStyleSheet('background-color: white; color: black;')
-            self.quote_field.resize(500, 500)
+            self.quote_field.setReadOnly(True)
+            self.quote_field.resize(pixmap.width(), 350)
 
             # Back and forward buttons
             self.button_back = QPushButton("Previous")
@@ -69,6 +80,7 @@ if __name__ == "__main__":
             self.button_export_quotes.clicked.connect(self.export_quotes)
             self.button_export_quotes.setStyleSheet('background-color: orange; color:black;')
 
+
             # Arrange the back/forward buttons horizontally
             layoutH = QHBoxLayout()
             layoutH.addWidget(self.button_back)
@@ -78,17 +90,32 @@ if __name__ == "__main__":
 
             # Arrange all elements vertically
             layoutV = QVBoxLayout()       
-            layoutV.addWidget(self.quote_field)
-            layoutV.addWidget(self.button)
-            layoutV.addWidget(nav_container)
             layoutV.addWidget(self.negative_toggle)
             layoutV.addWidget(self.nsfw_toggle)
             layoutV.addWidget(self.darkmode_toggle)
             layoutV.addWidget(self.button_export_quotes)
+            layoutV.addWidget(self.quote_field)
+            layoutV.addWidget(self.button)
+            
+
+            vert_container = QWidget()
+            vert_container.setLayout(layoutV)
+
+            quoteLayout = QVBoxLayout()
+            quoteLayout.addWidget(self.quote_area)
+            quoteLayout.addWidget(nav_container)
+
+            quote_container = QWidget()
+            quote_container.setLayout(quoteLayout)
+
+            layoutApp = QHBoxLayout()
+            layoutApp.addWidget(vert_container)
+            layoutApp.addWidget(quote_container)
+
 
             container = QWidget()
             container.setStyleSheet('background-color: #808080; color:black; border: 2px solid black; font-size: 24px; padding: 4px;')
-            container.setLayout(layoutV)
+            container.setLayout(layoutApp)
 
             self.setCentralWidget(container)    
 
@@ -117,63 +144,41 @@ if __name__ == "__main__":
             # Set the selected quote index to this new quote's index
             self.selected_quote = len(self.quote_history) - 1
 
+            self.create_quote_image()
+
+            self.quote_field.setText(self.quote)
+
+        def create_quote_image(self):
             # Prepare the image
             current_dir = Path(__file__).parent.absolute()
             image_path = os.path.join(os.path.join(current_dir, 'images'), 'tegeltje.jpg')
             image = Image.open(image_path)
-            """draw = ImageDraw.Draw(image)
-            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 36)
-            text = self.quote
-            position = (50, 50)
-            text_color = (65, 75, 139)
-            
-            max_text_length = 0
-            for line in text:
-                text_length = draw.textlength(text, font)
-                if text_length > max_text_length:
-                    max_text_length = text_length
-
-            if max_text_length < image.width:
-                x = (image.width - max_text_length) / 2
-                y = image.height / 2                    
-            else:
-                text = textwrap.wrap(text, width=image.width)
-
-            # Add text to the image
-            draw.text((x, y), text, fill=text_color, font=font)
-
-            image.save("output.jpg") """
 
             color = (65, 75, 139)
             text = self.quote
-            font = os.path.join(os.path.join(current_dir, 'fonts'), 'unifont-17.0.04.otf')
+            font = os.path.join(os.path.join(current_dir, 'fonts'), random.choice(font_collection))
             img = ImageText(image, background=(255, 255, 255, 200)) # 200 = alpha
 
             #write_text_box will split the text in many lines, based on box_width
             #`place` can be 'left' (default), 'right', 'center' or 'justify'
             #write_text_box will return (box_width, box_calculed_height) so you can
             #know the size of the wrote text
-            """img.write_text_box((50, 50), text, box_width=200, font_filename=font,
-                            font_size=15, color=color)
-            img.write_text_box((50, 125), text, box_width=200, font_filename=font,
-                            font_size=15, color=color, place='right')
-            img.write_text_box((50, 200), text, box_width=200, font_filename=font,
-                            font_size=15, color=color, place='center')
-            img.write_text_box((50, 275), text, box_width=200, font_filename=font,
-                            font_size=15, color=color, place='justify')"""
+            img.write_text_box((65, 200), text, box_width=200, font_filename=font,
+                            font_size=24, color=color, place='justify')
 
             #You don't need to specify text size: can specify max_width or max_height
             # and tell write_text to fill the text in this space, so it'll compute font
             # size automatically
             #write_text will return (width, height) of the wrote text
-            img.write_text((100, 250), text, font_filename=font,
-                        font_size='fill', max_height=150, color=color)
+            """img.write_text((100, 200), text, font_filename=font,
+                        font_size='fill', max_height=150, color=color)"""
 
-            img.save('sample-imagetext.png')
+            img.save('temp.png')
 
             # Display the modified image
-            # pixmap = QPixmap(image)
-            # self.quote_field.setPixmap(pixmap)
+            pixmap = QPixmap('temp.png')
+            self.quote_area.resize(pixmap.width(), pixmap.height())
+            self.quote_area.setPixmap(pixmap)
 
 
         def settings_changed(self):
@@ -227,6 +232,7 @@ if __name__ == "__main__":
                 self.selected_quote = self.selected_quote - 1
                 self.quote = self.quote_history[self.selected_quote]
                 self.quote_field.setText(self.quote)
+                self.create_quote_image()
             else:
                 return
         def next_quote(self):
@@ -235,6 +241,7 @@ if __name__ == "__main__":
                 self.selected_quote = self.selected_quote + 1
                 self.quote = self.quote_history[self.selected_quote]
                 self.quote_field.setText(self.quote)
+                self.create_quote_image()
             else:
                 return
 
