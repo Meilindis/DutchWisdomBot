@@ -44,6 +44,7 @@ situations_sfw = []
 situations_nsfw = []
 prepositions = []
 zodiac = []
+sometimes = []
  
 
 # Aggregate lists

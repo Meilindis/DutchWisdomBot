@@ -15,7 +15,7 @@ def horoscope():
     if result !=1:
         return ""
     else:
-        return (random.choice(word_collections.zodiac).capitalize() + ":\n")
+        return (random.choice(word_collections.zodiac).capitalize() + ":\n\n")
 
 # Repeat a random verb three times
 def function_times_three():
@@ -41,7 +41,7 @@ def template_three_characteristics():
 
 # Give one random compliment
 def template_one_compliment():
-    return (horoscope() + random.choice(word_collections.times).capitalize() + " forget that you are " + random.choice(word_collections.adjectives_positive))
+    return (horoscope() + random.choice(word_collections.times + word_collections.sometimes).capitalize() + " forget that you are " + random.choice(word_collections.adjectives_positive))
 
 # General statement
 def template_general():
@@ -232,11 +232,15 @@ def template_excuse():
 # Outweigh
 def template_outweigh():
     selected = random.choice(word_collections.nouns_plural)
-    return (rule() + "The " + selected + " of the many " + random.choice(word_collections.verbs) + " the " + selected + " of the few")
+    return (rule() + "The " + selected + " of the " + random.choice(word_collections.nouns_plural) + " " + random.choice(word_collections.verbs) + " the " + selected + " of the " + random.choice(word_collections.nouns_plural))
 
 # Today
 def template_today():
-    return (horoscope() + "Today, you will encounter " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+    return (horoscope() + random.choice(word_collections.sometimes) + ", you will encounter " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+
+# Do it
+def template_do_it():
+    return (horoscope() + "Start " + random.choice(word_collections.verbs_ing) + " " + random.choice(word_collections.sometimes))
 
 # List of defined tepmlates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
@@ -292,5 +296,6 @@ template_list = [function_times_three,
                  template_never,
                  template_excuse,
                  template_outweigh,
-                 template_today]
+                 template_today,
+                 template_do_it]
 
