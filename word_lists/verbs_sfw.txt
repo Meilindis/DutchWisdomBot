@@ -1,3 +1,4 @@
+bring
 caress
 clean
 consume
@@ -8,10 +9,13 @@ find
 hear
 impress
 knit
+lift up
+live
 love
 make
 move
 operate
+outweigh
 pet
 play
 prepare
@@ -20,6 +24,7 @@ read
 remove
 rub
 run
+scratch
 see
 sniff
 stroke
@@ -31,6 +36,8 @@ type
 understand
 watch
 weave
+wield
 work
 worship
 write
+yield

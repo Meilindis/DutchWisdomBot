@@ -10,6 +10,13 @@ def rule():
     else:
         return ("Rule " + str(random.randrange(1, 13, 1)) + ":\n")
 
+def horoscope():
+    result = (random.randrange(1, 8, 1))
+    if result !=1:
+        return ""
+    else:
+        return (random.choice(word_collections.zodiac).capitalize() + ":\n")
+
 # Repeat a random verb three times
 def function_times_three():
     current_verb = random.choice(word_collections.verbs)
@@ -26,15 +33,15 @@ def template_row():
 
 # Give three random compliments
 def template_three_compliments():
-    return ("You are " + random.choice(word_collections.adjectives_positive) + "\nYou are " + random.choice(word_collections.adjectives_positive) + "\nYou are " + random.choice(word_collections.adjectives_positive))
+    return (horoscope() + "You are " + random.choice(word_collections.adjectives_positive) + "\nYou are " + random.choice(word_collections.adjectives_positive) + "\nYou are " + random.choice(word_collections.adjectives_positive))
 
 # Give three random characteristics:
 def template_three_characteristics():
-    return ("You are " + random.choice(word_collections.adjectives) + "\nYou are " + random.choice(word_collections.adjectives) + "\nYou are " + random.choice(word_collections.adjectives))
+    return (horoscope() + "You are " + random.choice(word_collections.adjectives) + "\nYou are " + random.choice(word_collections.adjectives) + "\nYou are " + random.choice(word_collections.adjectives))
 
 # Give one random compliment
 def template_one_compliment():
-    return (random.choice(word_collections.times).capitalize() + " forget that you are " + random.choice(word_collections.adjectives_positive))
+    return (horoscope() + random.choice(word_collections.times).capitalize() + " forget that you are " + random.choice(word_collections.adjectives_positive))
 
 # General statement
 def template_general():
@@ -42,23 +49,23 @@ def template_general():
 
 # Surprise
 def template_surprise_singular():
-    return ("Here comes the " + random.choice(word_collections.people_singular) + "!")
+    return ("Here comes the " + random.choice(word_collections.people_singular_sfw) + "!")
     
 # Surprise 2
 def template_surprise_plural():
-    return ("Here come the " + random.choice(word_collections.people_plural) + "!")
+    return ("Here come the " + random.choice(word_collections.people_plural_sfw) + "!")
 
 # Call to action
 def template_call_to_action():
-    return (random.choice(word_collections.people_plural).capitalize() + ", rise up!")
+    return (random.choice(word_collections.people_plural_sfw).capitalize() + ", rise up!")
 
 # Spread the word
 def template_spread_the_word():
-    return (random.choice(word_collections.audiences).capitalize() + " you are " + random.choice(word_collections.adjectives) + ".\nStay " + random.choice(word_collections.adjectives) + ".")
+    return (horoscope() + random.choice(word_collections.audiences).capitalize() + " you are " + random.choice(word_collections.adjectives) + ".\nStay " + random.choice(word_collections.adjectives) + ".")
 
 # Definition
 def template_it_does():
-    return (random.choice(word_collections.nouns_plural).capitalize() + " will " + random.choice(word_collections.verbs) + " you")
+    return (horoscope() + random.choice(word_collections.nouns_plural).capitalize() + " will " + random.choice(word_collections.verbs) + " you")
 
 # Sharing is caring
 def template_share():
@@ -66,11 +73,11 @@ def template_share():
 
 # Oh you
 def template_you():
-    return ("You " + random.choice(word_collections.nouns_singular_sfw))
+    return (horoscope() + "You " + random.choice(word_collections.nouns_singular_sfw))
 
 # Oh adjective you
 def template_you_adjective():
-    return ("You " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular_sfw))
+    return (horoscope() + "You " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular_sfw))
 
 # It can be
 def template_can_be():
@@ -82,7 +89,7 @@ def template_no_sorry():
 
 # Reasons
 def template_reasons():
-    return ("The fact that you are the " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular) + " makes you " + random.choice(word_collections.adjectives))
+    return ("The fact that you are a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular) + " makes you " + random.choice(word_collections.adjectives))
 
 # Deserved
 def template_deserved():
@@ -127,7 +134,7 @@ def template_no_need():
 
 # Potential
 def template_potential():
-    return ("You have the potential to become a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
+    return (horoscope() + "You have the potential to become a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
 
 # Results
 def template_results():
@@ -139,7 +146,7 @@ def template_causation():
 
 # Two needs
 def template_two_needs():
-    return ("The two things you need in order to live " + random.choice(word_collections.adverbs) + " are " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " and " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+    return (horoscope() + "The two things you need in order to live " + random.choice(word_collections.adverbs) + " are " + random.choice(word_collections.nouns_plural + word_collections.concepts) + " and " + random.choice(word_collections.nouns_plural + word_collections.concepts))
 
 # Maybe?
 def template_maybe():
@@ -163,7 +170,7 @@ def template_right():
     
 # Personality
 def template_personality():
-	return ("You are a " + random.choice(word_collections.nouns_singular) + " " + random.choice(word_collections.people_singular))
+	return (horoscope() + "You are a " + random.choice(word_collections.nouns_singular) + " " + random.choice(word_collections.people_singular_sfw))
 
 # The best
 def function_the_best():
@@ -176,11 +183,11 @@ def template_be():
     
 # Judgement
 def template_judgement():
-	return (random.choice(word_collections.nouns_plural).capitalize() + " are " + random.choice(word_collections.times) + " " + random.choice(word_collections.adjectives))
+	return (horoscope() + random.choice(word_collections.nouns_plural).capitalize() + " are " + random.choice(word_collections.times) + " " + random.choice(word_collections.adjectives))
 
 # Watch out!
 def template_watch_out():
-	return (random.choice(word_collections.nouns_plural).capitalize() + " are coming for you!")
+	return (horoscope() + random.choice(word_collections.nouns_plural).capitalize() + " are coming for you!")
 
 # The higher, the fewer
 def template_higher():
@@ -188,7 +195,7 @@ def template_higher():
 
 # More you
 def template_you_superlative():
-    return ("You can be the " + random.choice(word_collections.superlatives) + " " + random.choice(word_collections.nouns_singular))
+    return (horoscope() + "You can be the " + random.choice(word_collections.superlatives) + " " + random.choice(word_collections.nouns_singular))
 
 # Never
 def template_never():
@@ -196,7 +203,40 @@ def template_never():
 
 # Needs
 def template_need():
-    return (random.choice(word_collections.times).capitalize() + " you just need a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
+    return (rule() + "You just need a " + random.choice(word_collections.adjectives) + " " + random.choice(word_collections.nouns_singular))
+
+# You must
+def template_must():
+    return (rule() + "If you are the " + random.choice(word_collections.superlatives) + " at " + random.choice(word_collections.situations) + ", you " + random.choice(word_collections.verbs_mandatory_sfw) + " " + random.choice(word_collections.verbs) + " " + random.choice(word_collections.nouns_plural))
+
+# A good day
+def template_day():
+    return ("Today is a good day to " + random.choice(word_collections.verbs))
+
+# LLAP
+def template_llap():
+    return (rule() + random.choice(word_collections.verbs).capitalize() + " " + random.choice(word_collections.adjectives) + " and " + random.choice(word_collections.verbs + word_collections.verbs_intransitive))
+
+# Why?
+def template_why():
+    return ("Why stop " + random.choice(word_collections.verbs_ing) + " if you're " + random.choice(word_collections.adjectives) + "?")
+
+# Never
+def template_never():
+    return (rule() + "Never " + random.choice(word_collections.verbs_intransitive) + " unless you're willing to " + random.choice(word_collections.verbs + word_collections.verbs_intransitive))
+
+# Excuse me
+def template_excuse():
+    return ("Excuse me\nWhat does a " + random.choice(word_collections.people_singular_sfw) + " want with a " + random.choice(word_collections.nouns_singular) + "?")
+
+# Outweigh
+def template_outweigh():
+    selected = random.choice(word_collections.nouns_plural)
+    return (rule() + "The " + selected + " of the many " + random.choice(word_collections.verbs) + " the " + selected + " of the few")
+
+# Today
+def template_today():
+    return (horoscope() + "Today, you will encounter " + random.choice(word_collections.nouns_plural + word_collections.concepts))
 
 # List of defined tepmlates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
@@ -244,5 +284,13 @@ template_list = [function_times_three,
                  template_higher,
                  template_you_superlative,
                  template_never,
-                 template_need]
+                 template_need,
+                 template_must,
+                 template_day,
+                 template_llap,
+                 template_why,
+                 template_never,
+                 template_excuse,
+                 template_outweigh,
+                 template_today]
 

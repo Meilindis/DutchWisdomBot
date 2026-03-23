@@ -180,7 +180,7 @@ if __name__ == "__main__":
             # Set all word collections to neutral
             word_collections.nouns_singular = word_collections.nouns_singular_sfw + word_collections.people_singular + word_collections.animals_singular + word_collections.verbs_active_sfw + word_collections.food_singular
             word_collections.nouns_plural = word_collections.animals_plural + word_collections.people_plural + word_collections.nouns_plural_sfw + word_collections.food_plural
-            word_collections.adjectives = word_collections.adjectives_positive + word_collections.adjectives_neutral + word_collections.comparatives_sfw
+            word_collections.adjectives = word_collections.adjectives_positive + word_collections.adjectives_neutral
             word_collections.verbs = word_collections.verbs_sfw
             word_collections.verbs_third_person = word_collections.verbs_third_person_sfw
             word_collections.verbs_ing = word_collections.verbs_ing_sfw
@@ -189,6 +189,8 @@ if __name__ == "__main__":
             word_collections.comparatives = word_collections.comparatives_sfw
             word_collections.superlatives = word_collections.superlatives_sfw
             word_collections.situations = word_collections.situations_sfw
+            word_collections.people_singular = word_collections.people_singular_sfw
+            word_collections.people_plural = word_collections.people_plural_sfw
             # Add NSFW
             if self.nsfw_toggle.isChecked():
                 word_collections.nouns_singular = word_collections.nouns_singular + word_collections.nouns_singular_nsfw + word_collections.animals_singular + word_collections.verbs_active_sfw + word_collections.verbs_active_nsfw
@@ -207,6 +209,8 @@ if __name__ == "__main__":
             if self.negative_toggle.isChecked() == True:
                 word_collections.adjectives = word_collections.adjectives + word_collections.adjectives_negative
                 word_collections.concepts = word_collections.concepts + word_collections.concepts_negative
+                word_collections.people_singular = word_collections.people_singular + word_collections.people_singular_neg
+                word_collections.people_plural = word_collections.people_plural + word_collections.people_plural_neg
             # Remove anything but positive
             if self.negative_toggle.isChecked() == False:
                 word_collections.adjectives = word_collections.adjectives_positive               
@@ -249,8 +253,8 @@ if __name__ == "__main__":
             word_collections.colours = word_collections.import_list("colours.txt")
             word_collections.nouns_singular_sfw = word_collections.import_list("nouns_singular_sfw.txt")
             word_collections.nouns_plural_sfw = word_collections.import_list("nouns_plural_sfw.txt")
-            word_collections.people_singular = word_collections.import_list("people_singular.txt")
-            word_collections.people_plural = word_collections.import_list("people_plural.txt")
+            word_collections.people_singular_sfw = word_collections.import_list("people_singular_sfw.txt")
+            word_collections.people_plural_sfw = word_collections.import_list("people_plural_sfw.txt")
             word_collections.animals_singular = word_collections.import_list("animals_singular.txt")
             word_collections.animals_plural = word_collections.import_list("animals_plural.txt")
             word_collections.food_singular = word_collections.import_list("food_singular.txt")
@@ -284,6 +288,9 @@ if __name__ == "__main__":
             word_collections.situations_sfw = word_collections.import_list("situations_sfw.txt")
             word_collections.situations_nsfw = word_collections.import_list("situations_nsfw.txt")
             word_collections.prepositions = word_collections.import_list("prepositions.txt")
+            word_collections.people_singular_neg = word_collections.import_list("people_singular_neg.txt")
+            word_collections.people_plural_neg = word_collections.import_list("people_plural_neg.txt")
+            word_collections.zodiac = word_collections.import_list("zodiac.txt")
 
         def export_word_lists(self):
             # Export every word list and make sure the words are in alphabetical order
@@ -293,8 +300,8 @@ if __name__ == "__main__":
             word_collections.export_list(word_collections.colours, "colours")
             word_collections.export_list(word_collections.nouns_singular_sfw, "nouns_singular_sfw")
             word_collections.export_list(word_collections.nouns_plural_sfw, "nouns_plural_sfw")
-            word_collections.export_list(word_collections.people_singular, "people_singular")
-            word_collections.export_list(word_collections.people_plural, "people_plural")
+            word_collections.export_list(word_collections.people_singular_sfw, "people_singular_sfw")
+            word_collections.export_list(word_collections.people_plural_sfw, "people_plural_sfw")
             word_collections.export_list(word_collections.animals_singular, "animals_singular")
             word_collections.export_list(word_collections.animals_plural, "animals_plural")
             word_collections.export_list(word_collections.food_singular, "food_singular")
@@ -328,6 +335,9 @@ if __name__ == "__main__":
             word_collections.export_list(word_collections.situations_sfw, "situations_sfw")
             word_collections.export_list(word_collections.situations_nsfw, "situations_nsfw")
             word_collections.export_list(word_collections.prepositions, "prepositions")
+            word_collections.export_list(word_collections.people_singular_neg, "people_singular_neg")
+            word_collections.export_list(word_collections.people_plural_neg, "people_plural_neg")
+            word_collections.export_list(word_collections.zodiac, "zodiac")
 
 
     app = QApplication(sys.argv)
