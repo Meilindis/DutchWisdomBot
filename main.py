@@ -226,6 +226,7 @@ if __name__ == "__main__":
             word_collections.prepositions = word_collections.import_list("prepositions.txt")
             word_collections.people_singular_neg = word_collections.import_list("people_singular_neg.txt")
             word_collections.people_plural_neg = word_collections.import_list("people_plural_neg.txt")
+            word_collections.zodiac = word_collections.import_list("zodiac.txt")
 
         def export_word_lists(self):
             # Export every word list and make sure the words are in alphabetical order
@@ -272,6 +273,7 @@ if __name__ == "__main__":
             word_collections.export_list(word_collections.prepositions, "prepositions")
             word_collections.export_list(word_collections.people_singular_neg, "people_singular_neg")
             word_collections.export_list(word_collections.people_plural_neg, "people_plural_neg")
+            word_collections.export_list(word_collections.zodiac, "zodiac")
 
 
     app = QApplication(sys.argv)
