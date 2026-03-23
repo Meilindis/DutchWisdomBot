@@ -21,7 +21,7 @@ from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QVBoxLayout, QWidget, QLabel, QCheckBox, QHBoxLayout
 
-font_collection = ['unifont-17.0.04.otf', 'GalaferaMedium-V4xze.ttf', 'ShadeBlue-2OozX.ttf', 'LoveDays-2v7Oe.ttf', 'JustBreathe-vO6y.otf', 'CronusRound-KA6y.ttf', 'Quaaykop-DYE1R.ttf', 'Wonderbar-pALD.ttf', 'Typographica-Blp5.ttf']
+font_collection = ['unifont-17.0.04.otf', 'GalaferaMedium-V4xze.ttf', 'ShadeBlue-2OozX.ttf', 'LoveDays-2v7Oe.ttf', 'JustBreathe-vO6y.otf', 'CronusRound-KA6y.ttf', 'Quaaykop-DYE1R.ttf', 'Wonderbar-pALD.ttf']
 
 if __name__ == "__main__":
     class MainWindow(QMainWindow):
