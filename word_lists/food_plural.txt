@@ -8,6 +8,7 @@ chips
 chocolates
 cocktails
 cookies
+cucumbers
 drinks
 eggs
 fries
@@ -29,6 +30,7 @@ sausages
 schnitzels
 tomatoes
 tortillas
+turnips
 vegetables
 veggies
 walnuts

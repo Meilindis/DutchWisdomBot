@@ -15,6 +15,7 @@ chilli
 chocolate
 cocktail
 cookie
+cucumber
 drink
 egg
 fry
@@ -43,6 +44,7 @@ soup
 toad-in-a-hole
 tomato
 tortilla
+turnip
 vegetable
 veggie
 walnut
