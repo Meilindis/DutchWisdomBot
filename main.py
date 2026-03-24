@@ -21,7 +21,30 @@ from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QVBoxLayout, QWidget, QLabel, QCheckBox, QHBoxLayout
 
-font_collection = ['unifont-17.0.04.otf', 'GalaferaMedium-V4xze.ttf', 'ShadeBlue-2OozX.ttf', 'LoveDays-2v7Oe.ttf', 'JustBreathe-vO6y.otf', 'CronusRound-KA6y.ttf', 'Quaaykop-DYE1R.ttf', 'Wonderbar-pALD.ttf']
+font_collection = ['unifont-17.0.04.otf', 
+                   'GalaferaMedium-V4xze.ttf', 
+                   'ShadeBlue-2OozX.ttf', 
+                   'LoveDays-2v7Oe.ttf', 
+                   'JustBreathe-vO6y.otf', 
+                   'CronusRound-KA6y.ttf', 
+                   'Quaaykop-DYE1R.ttf', 
+                   'Wonderbar-pALD.ttf', 
+                   'HussarBold-7mRE.otf',
+                   'BiotripSerifBold-Jpo3K.ttf',
+                   'RomanticAdoreDemoRegular-5yGpj.ttf',
+                   'BazigBold-yYRV5.ttf']
+# Image list: image name, text colour, placement, indent (x), starting height (y)
+image_collection = [#['a_fetters_recto_b_several_figures_verso.png', (65, 75, 139), 'justify', 60, 225],
+                    #['a_luncheon_party_.png', (65, 75, 139), 'justify', 60, 225],
+                    #['building_the_freidrich-strasse_station.png', (65, 75, 139), 'justify', 50, 50],
+                    #['die_komponistin_sonia_friedman.png', (255, 255, 255), 'justify', 60, 225],
+                    #['les_amateurs_d_estampes.png', (65, 75, 139), 'justify', 60, 225],
+                    #['rider.png', (65, 75, 139), 'justify', 60, 225],
+                    #['the_tournament.png', (255, 255, 255), 'justify', 60, 225],
+                    #['the_visit_.png', (65, 75, 139), 'justify', 60, 225],
+                    #['three_girls_in_profile.png', (65, 75, 139), 'justify', 60, 225],
+                    #['twelve_men_.png', (65, 75, 139), 'justify', 60, 225],
+                    ['tegeltje.jpg', (65, 75, 139), 'justify', 60, 225]]
 
 if __name__ == "__main__":
     class MainWindow(QMainWindow):
@@ -151,10 +174,14 @@ if __name__ == "__main__":
         def create_quote_image(self):
             # Prepare the image
             current_dir = Path(__file__).parent.absolute()
-            image_path = os.path.join(os.path.join(current_dir, 'images'), 'tegeltje.jpg')
+            selected_image = random.choice(image_collection)
+            image_path = os.path.join(os.path.join(current_dir, 'images'), selected_image[0])
             image = Image.open(image_path)
 
-            color = (65, 75, 139)
+            color = selected_image[1]
+            location = selected_image[2]
+            x_val = selected_image[3]
+            y_val = selected_image[4]
             text = self.quote
             font = os.path.join(os.path.join(current_dir, 'fonts'), random.choice(font_collection))
             img = ImageText(image, background=(255, 255, 255, 200)) # 200 = alpha
@@ -165,45 +192,45 @@ if __name__ == "__main__":
                 #write_text_box will return (box_width, box_calculed_height) so you can
                 #know the size of the wrote text
                 img.write_text_box((60, 225), text, box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=24, color=color, place=location)
             else:
                 nr_of_lines = text.count("\n") + 1
                 if nr_of_lines == 2:
                     lines = text.splitlines()
                     img.write_text_box((65, 200), lines[0], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((65, 235), lines[1], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                 elif nr_of_lines == 3:
                     lines = text.splitlines()
                     img.write_text_box((70, 190), lines[0], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((70, 225), lines[1], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((70, 260), lines[2], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                 elif nr_of_lines == 4:
                     lines = text.splitlines()
                     img.write_text_box((75, 180), lines[0], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((75, 215), lines[1], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((75, 250), lines[2], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((75, 285), lines[3], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                 elif nr_of_lines == 5:
                     lines = text.splitlines()
                     img.write_text_box((80, 170), lines[0], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((80, 205), lines[1], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((80, 240), lines[2], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((80, 275), lines[3], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
                     img.write_text_box((80, 310), lines[4], box_width=200, font_filename=font,
-                                font_size=24, color=color, place='justify')
+                                font_size=26, color=color, place=location)
 
 
             img.save('temp.png')
