@@ -1,5 +1,10 @@
 import random
 import word_collections
+import re
+
+# Only touch the first letter
+def capitalize_first_letter_only(phrase):
+	return re.sub('([a-zA-Z])', lambda x: x.groups()[0].upper(), phrase, 1)
 
 
 # Generate a random rule number and whether it applies to the quote or not
@@ -15,7 +20,8 @@ def horoscope():
     if result !=1:
         return ""
     else:
-        return (random.choice(word_collections.zodiac).capitalize() + ":\n\n")
+        horrorscope = random.choice(word_collections.zodiac).split(' ', 1)
+        return (horrorscope[0].capitalize() + "\n" + horrorscope[1] + ":\n\n")
 
 # Repeat a random verb three times
 def function_times_three():
@@ -222,7 +228,7 @@ def template_why():
     return ("Why stop " + random.choice(word_collections.verbs_ing) + " if you're " + random.choice(word_collections.adjectives) + "?")
 
 # Never
-def template_never():
+def template_never_again():
     return (rule() + "Never " + random.choice(word_collections.verbs_intransitive) + " unless you're willing to " + random.choice(word_collections.verbs + word_collections.verbs_intransitive))
 
 # Excuse me
@@ -236,11 +242,15 @@ def template_outweigh():
 
 # Today
 def template_today():
-    return (horoscope() + random.choice(word_collections.sometimes) + ", you will encounter " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+    return (horoscope() + capitalize_first_letter_only(random.choice(word_collections.sometimes)) + ", you will encounter " + random.choice(word_collections.nouns_plural + word_collections.concepts))
 
 # Do it
 def template_do_it():
     return (horoscope() + "Start " + random.choice(word_collections.verbs_ing) + " " + random.choice(word_collections.sometimes))
+
+# They're gonna
+def template_gonna():
+	return (capitalize_first_letter_only(random.choice(word_collections.nouns_plural)) + " are gonna " + random.choice(word_collections.verbs) + " you!")
 
 # List of defined tepmlates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
@@ -293,9 +303,9 @@ template_list = [function_times_three,
                  template_day,
                  template_llap,
                  template_why,
-                 template_never,
+                 template_never_again,
                  template_excuse,
                  template_outweigh,
                  template_today,
-                 template_do_it]
-
+                 template_do_it,
+                 template_gonna]
