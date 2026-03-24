@@ -1,5 +1,10 @@
 import random
 import word_collections
+import re
+
+# Only touch the first letter
+def capitalize_first_letter_only(phrase):
+	return re.sub('([a-zA-Z])', lambda x: x.groups()[0].upper(), phrase, 1)
 
 
 # Generate a random rule number and whether it applies to the quote or not
@@ -15,7 +20,8 @@ def horoscope():
     if result !=1:
         return ""
     else:
-        return (random.choice(word_collections.zodiac).capitalize() + ":\n\n")
+        horrorscope = random.choice(word_collections.zodiac).split(' ', 1)
+        return (horrorscope[0].capitalize() + "\n" + horrorscope[1] + ":\n\n")
 
 # Repeat a random verb three times
 def function_times_three():
@@ -236,7 +242,7 @@ def template_outweigh():
 
 # Today
 def template_today():
-    return (horoscope() + random.choice(word_collections.sometimes).capitalize() + ",\nyou will encounter " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+    return (horoscope() + capitalize_first_letter_only(random.choice(word_collections.sometimes)) + ",\nyou will encounter " + random.choice(word_collections.nouns_plural + word_collections.concepts))
 
 # Do it
 def template_do_it():
