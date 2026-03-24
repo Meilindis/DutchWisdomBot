@@ -231,6 +231,20 @@ if __name__ == "__main__":
                                 font_size=26, color=color, place=location)
                     img.write_text_box((80, 310), lines[4], box_width=200, font_filename=font,
                                 font_size=26, color=color, place=location)
+                elif nr_of_lines == 6:
+                    lines = text.splitlines()
+                    img.write_text_box((80, 160), lines[0], box_width=200, font_filename=font,
+                                font_size=26, color=color, place=location)
+                    img.write_text_box((80, 195), lines[1], box_width=200, font_filename=font,
+                                font_size=26, color=color, place=location)
+                    img.write_text_box((80, 230), lines[2], box_width=200, font_filename=font,
+                                font_size=26, color=color, place=location)
+                    img.write_text_box((80, 265), lines[3], box_width=200, font_filename=font,
+                                font_size=26, color=color, place=location)
+                    img.write_text_box((80, 300), lines[4], box_width=200, font_filename=font,
+                                font_size=26, color=color, place=location)
+                    img.write_text_box((80, 335), lines[4], box_width=200, font_filename=font,
+                                font_size=26, color=color, place=location)
 
 
             img.save('temp.png')
