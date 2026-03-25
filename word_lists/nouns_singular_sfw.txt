@@ -84,7 +84,6 @@ peanut
 pencil
 pet
 petal
-petrichor
 phaser
 phone
 piano

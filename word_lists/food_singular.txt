@@ -1,4 +1,5 @@
 apple
+aubergine
 bean
 bread
 broccoli
@@ -7,6 +8,7 @@ burger
 butter
 cabbage
 cake
+carrot
 cauliflower
 cheese
 cherry
@@ -18,6 +20,7 @@ cookie
 cucumber
 drink
 egg
+eggplant
 fry
 hot chocolate
 lasagna
@@ -39,6 +42,7 @@ potato
 prune
 salad
 sausage
+sausage roll
 schnitzel
 soup
 toad-in-a-hole
