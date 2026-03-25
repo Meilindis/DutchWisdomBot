@@ -38,8 +38,8 @@ font_collection = ['GalaferaMedium-V4xze.ttf',
 # Image list: image name, text colour, placement, indent (x), starting height (y), whether or not extra indentation is necessary for multiline
 image_collection = [['a_fetters_recto_b_several_figures_verso.png', (145, 0, 140), 'justify', 50, 365, 'straight'],
                     ['a_luncheon_party_.png', (255, 245, 185), 'justify', 50, 365, 'straight'],
-                    ['angry_lady.jpg', (65, 75, 139), 'justify', 50, 100, 'straight'],
-                    ['balloons.jpg', (65, 75, 139), 'justify', 40, 100, 'straight'],
+                    ['angry_lady.jpg', (65, 75, 139), 'justify', 30, 100, 'straight'],
+                    ['balloons.jpg', (65, 75, 139), 'justify', 30, 100, 'straight'],
                     ['building_the_freidrich-strasse_station.png', (65, 75, 139), 'justify', 40, 100, 'straight'],
                     ['die_komponistin_sonia_friedman.png', (167, 255, 174), 'justify', 30, 305, 'straight'],
                     ['les_amateurs_d_estampes.png', (207, 220, 255), 'justify', 40, 100, 'straight'],
@@ -286,7 +286,7 @@ if __name__ == "__main__":
                 word_collections.verbs_ing = word_collections.verbs_ing + word_collections.verbs_ing_nsfw
                 word_collections.verbs_intransitive = word_collections.verbs_intransitive_sfw + word_collections.verbs_intransitive_nsfw
                 word_collections.concepts = word_collections.concepts + word_collections.concepts_nsfw
-                word_collections.adjectives = word_collections.adjectives + word_collections.comparatives_nsfw
+                word_collections.adjectives = word_collections.adjectives + word_collections.adjectives_nsfw
                 word_collections.comparatives = word_collections.comparatives + word_collections.comparatives_nsfw
                 word_collections.superlatives = word_collections.superlatives + word_collections.superlatives_nsfw
                 word_collections.situations = word_collections.situations + word_collections.situations_nsfw

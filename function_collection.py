@@ -275,6 +275,10 @@ def template_do_it():
 def template_gonna():
 	return (capitalize_first_letter_only(random.choice(word_collections.nouns_plural)) + " are gonna " + random.choice(word_collections.verbs) + " you!")
 
+# Remember
+def template_remember():
+    return ("Remember that " + random.choice(word_collections.nouns_plural) + "\nwill never let you down")
+
 # List of defined templates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
                  template_three_compliments, 
@@ -331,5 +335,6 @@ template_list = [function_times_three,
                  template_outweigh,
                  template_today,
                  template_do_it,
-                 template_gonna]
+                 template_gonna,
+                 template_remember]
 
