@@ -23,9 +23,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit,
 
 font_collection = ['unifont-17.0.04.otf', 
                    'GalaferaMedium-V4xze.ttf', 
-                   'ShadeBlue-2OozX.ttf', 
                    'LoveDays-2v7Oe.ttf', 
-                   'JustBreathe-vO6y.otf', 
                    'CronusRound-KA6y.ttf', 
                    'Quaaykop-DYE1R.ttf', 
                    'Wonderbar-pALD.ttf', 
@@ -34,8 +32,8 @@ font_collection = ['unifont-17.0.04.otf',
                    'RomanticAdoreDemoRegular-5yGpj.ttf',
                    'BazigBold-yYRV5.ttf']
 # Image list: image name, text colour, placement, indent (x), starting height (y)
-image_collection = [#['a_fetters_recto_b_several_figures_verso.png', (65, 75, 139), 'justify', 60, 225],
-                    #['a_luncheon_party_.png', (65, 75, 139), 'justify', 60, 225],
+image_collection = [['a_fetters_recto_b_several_figures_verso.png', (145, 0, 140), 'justify', 50, 365],
+                    ['a_luncheon_party_.png', (255, 245, 185), 'justify', 50, 365],
                     #['building_the_freidrich-strasse_station.png', (65, 75, 139), 'justify', 50, 50],
                     #['die_komponistin_sonia_friedman.png', (255, 255, 255), 'justify', 60, 225],
                     #['les_amateurs_d_estampes.png', (65, 75, 139), 'justify', 60, 225],
@@ -180,71 +178,62 @@ if __name__ == "__main__":
 
             color = selected_image[1]
             location = selected_image[2]
-            x_val = selected_image[3]
-            y_val = selected_image[4]
+            x_val = selected_image[3] # indent to the right from 0 (base is one line)
+            y_val = selected_image[4] # pixels down from zero
             text = self.quote
             font = os.path.join(os.path.join(current_dir, 'fonts'), random.choice(font_collection))
             img = ImageText(image, background=(255, 255, 255, 200)) # 200 = alpha
+
 
             if "\n" not in text:
                 #write_text_box will split the text in many lines, based on box_width
                 #`place` can be 'left' (default), 'right', 'center' or 'justify'
                 #write_text_box will return (box_width, box_calculed_height) so you can
                 #know the size of the wrote text
-                img.write_text_box((60, 225), text, box_width=200, font_filename=font,
-                                font_size=24, color=color, place=location)
+                img.write_text_box((x_val, y_val), text, box_width=200, font_filename=font,
+                                font_size=24, color=color, place=location) # 60,225
             else:
                 nr_of_lines = text.count("\n") + 1
                 if nr_of_lines == 2:
                     lines = text.splitlines()
-                    img.write_text_box((65, 200), lines[0], box_width=200, font_filename=font,
+                    x = x_val + 5
+                    y = y_val - 25
+                    for line in lines:
+                        img.write_text_box((x, y), line, box_width=200, font_filename=font,
                                 font_size=26, color=color, place=location)
-                    img.write_text_box((65, 235), lines[1], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
+                        y += 35
                 elif nr_of_lines == 3:
                     lines = text.splitlines()
-                    img.write_text_box((70, 190), lines[0], box_width=200, font_filename=font,
+                    x = x_val + 10
+                    y = y_val - 35
+                    for line in lines:
+                        img.write_text_box((x, y), line, box_width=200, font_filename=font,
                                 font_size=26, color=color, place=location)
-                    img.write_text_box((70, 225), lines[1], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((70, 260), lines[2], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
+                        y += 35
                 elif nr_of_lines == 4:
                     lines = text.splitlines()
-                    img.write_text_box((75, 180), lines[0], box_width=200, font_filename=font,
+                    x = x_val + 15
+                    y = y_val - 45
+                    for line in lines:
+                        img.write_text_box((x, y), line, box_width=200, font_filename=font,
                                 font_size=26, color=color, place=location)
-                    img.write_text_box((75, 215), lines[1], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((75, 250), lines[2], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((75, 285), lines[3], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
+                        y += 35
                 elif nr_of_lines == 5:
                     lines = text.splitlines()
-                    img.write_text_box((80, 170), lines[0], box_width=200, font_filename=font,
+                    x = x_val + 20
+                    y = y_val - 55
+                    for line in lines:
+                        img.write_text_box((x, y), line, box_width=200, font_filename=font,
                                 font_size=26, color=color, place=location)
-                    img.write_text_box((80, 205), lines[1], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((80, 240), lines[2], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((80, 275), lines[3], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((80, 310), lines[4], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
+                        y += 35
                 elif nr_of_lines == 6:
                     lines = text.splitlines()
-                    img.write_text_box((80, 160), lines[0], box_width=200, font_filename=font,
+                    x = x_val + 25
+                    y = y_val - 65
+                    for line in lines:
+                        img.write_text_box((x, y), line, box_width=200, font_filename=font,
                                 font_size=26, color=color, place=location)
-                    img.write_text_box((80, 195), lines[1], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((80, 230), lines[2], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((80, 265), lines[3], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((80, 300), lines[4], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
-                    img.write_text_box((80, 335), lines[4], box_width=200, font_filename=font,
-                                font_size=26, color=color, place=location)
+                        y += 35
 
 
             img.save('temp.png')

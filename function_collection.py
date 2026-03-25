@@ -124,7 +124,7 @@ def template_encouragement():
 
 # Strangely true
 def template_strangely_true():
-    return (rule() + "Just because you're\n " + random.choice(word_collections.nouns_singular) + "\nit doesn't mean you're\na " + random.choice(word_collections.nouns_singular))
+    return (rule() + "Just because you're\na " + random.choice(word_collections.nouns_singular) + "\nit doesn't mean you're\na " + random.choice(word_collections.nouns_singular))
 
 # Really
 def template_really():
