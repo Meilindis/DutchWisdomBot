@@ -21,8 +21,7 @@ from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QVBoxLayout, QWidget, QLabel, QCheckBox, QHBoxLayout
 
-font_collection = ['unifont-17.0.04.otf', 
-                   'GalaferaMedium-V4xze.ttf', 
+font_collection = ['GalaferaMedium-V4xze.ttf', 
                    'LoveDays-2v7Oe.ttf', 
                    'CronusRound-KA6y.ttf', 
                    'Quaaykop-DYE1R.ttf', 
@@ -32,17 +31,20 @@ font_collection = ['unifont-17.0.04.otf',
                    'RomanticAdoreDemoRegular-5yGpj.ttf',
                    'BazigBold-yYRV5.ttf']
 # Image list: image name, text colour, placement, indent (x), starting height (y)
-image_collection = [['a_fetters_recto_b_several_figures_verso.png', (145, 0, 140), 'justify', 50, 365],
-                    ['a_luncheon_party_.png', (255, 245, 185), 'justify', 50, 365],
-                    #['building_the_freidrich-strasse_station.png', (65, 75, 139), 'justify', 50, 50],
-                    #['die_komponistin_sonia_friedman.png', (255, 255, 255), 'justify', 60, 225],
-                    #['les_amateurs_d_estampes.png', (65, 75, 139), 'justify', 60, 225],
-                    #['rider.png', (65, 75, 139), 'justify', 60, 225],
-                    #['the_tournament.png', (255, 255, 255), 'justify', 60, 225],
-                    #['the_visit_.png', (65, 75, 139), 'justify', 60, 225],
-                    #['three_girls_in_profile.png', (65, 75, 139), 'justify', 60, 225],
-                    #['twelve_men_.png', (65, 75, 139), 'justify', 60, 225],
-                    ['tegeltje.jpg', (65, 75, 139), 'justify', 60, 225]]
+image_collection = [['a_fetters_recto_b_several_figures_verso.png', (145, 0, 140), 'justify', 50, 365, 'straight'],
+                    ['a_luncheon_party_.png', (255, 245, 185), 'justify', 50, 365, 'straight'],
+                    ['angry_lady.jpg', (65, 75, 139), 'justify', 50, 100, 'straight'],
+                    ['balloons.jpg', (65, 75, 139), 'justify', 40, 100, 'straight'],
+                    ['building_the_freidrich-strasse_station.png', (65, 75, 139), 'justify', 40, 100, 'straight'],
+                    ['die_komponistin_sonia_friedman.png', (167, 255, 174), 'justify', 30, 305, 'straight'],
+                    ['les_amateurs_d_estampes.png', (207, 220, 255), 'justify', 40, 100, 'straight'],
+                    ['rider.png', (0, 0, 0), 'justify', 30, 370, 'straight'],
+                    ['the_tournament.png', (255, 245, 215), 'justify', 30, 100, 'straight'],
+                    ['the_visit_.png', (142, 255, 221), 'justify', 30, 365, 'straight'],
+                    ['three_girls_in_profile.png', (24, 0, 59), 'justify', 30, 365, 'straight'],
+                    ['twelve_men_.png', (199, 17, 234), 'justify', 30, 100, 'straight'],
+                    ['tegeltje.jpg', (65, 75, 139), 'justify', 60, 225, 'curve']
+                    ]
 
 if __name__ == "__main__":
     class MainWindow(QMainWindow):
@@ -196,7 +198,9 @@ if __name__ == "__main__":
                 nr_of_lines = text.count("\n") + 1
                 if nr_of_lines == 2:
                     lines = text.splitlines()
-                    x = x_val + 5
+                    if selected_image[5] == 'curve':
+                        x = x_val + 5
+                    else: x = x_val
                     y = y_val - 25
                     for line in lines:
                         img.write_text_box((x, y), line, box_width=200, font_filename=font,
@@ -204,7 +208,9 @@ if __name__ == "__main__":
                         y += 35
                 elif nr_of_lines == 3:
                     lines = text.splitlines()
-                    x = x_val + 10
+                    if selected_image[5] == 'curve':
+                        x = x_val + 10
+                    else: x = x_val
                     y = y_val - 35
                     for line in lines:
                         img.write_text_box((x, y), line, box_width=200, font_filename=font,
@@ -212,7 +218,9 @@ if __name__ == "__main__":
                         y += 35
                 elif nr_of_lines == 4:
                     lines = text.splitlines()
-                    x = x_val + 15
+                    if selected_image[5] == 'curve':
+                        x = x_val + 15
+                    else: x = x_val
                     y = y_val - 45
                     for line in lines:
                         img.write_text_box((x, y), line, box_width=200, font_filename=font,
@@ -220,7 +228,9 @@ if __name__ == "__main__":
                         y += 35
                 elif nr_of_lines == 5:
                     lines = text.splitlines()
-                    x = x_val + 20
+                    if selected_image[5] == 'curve':
+                        x = x_val + 20
+                    else: x = x_val
                     y = y_val - 55
                     for line in lines:
                         img.write_text_box((x, y), line, box_width=200, font_filename=font,
@@ -228,8 +238,10 @@ if __name__ == "__main__":
                         y += 35
                 elif nr_of_lines == 6:
                     lines = text.splitlines()
-                    x = x_val + 25
-                    y = y_val - 65
+                    if selected_image[5] == 'curve':
+                        x = x_val + 25
+                    
+                    else: x = x_valy = y_val - 65
                     for line in lines:
                         img.write_text_box((x, y), line, box_width=200, font_filename=font,
                                 font_size=26, color=color, place=location)
