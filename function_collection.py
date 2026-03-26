@@ -157,7 +157,13 @@ def template_potential():
     temp1 = random.choice(word_collections.adjectives)
     temp2 = a_or_an(temp1) + temp1
     temp3 = random.choice(word_collections.nouns_singular)
-    return (horoscope() + "You have the potential\nto become " + temp2 + " " + temp3 + ".\nSeriously. " + capitalize_first_letter_only(a_or_an(temp3)) + temp3 + ".")
+    choice = random.randrange(0, 1, 1)
+    phrase = ""
+    if choice == 0:
+        phrase = "\nSeriously. " + capitalize_first_letter_only(a_or_an(temp3)) + " " + temp3 + "."
+    else:
+        phrase =  ""
+    return (horoscope() + "You have the potential\nto become " + temp2 + " " + temp3 + "." + phrase)
 
 # Results
 def template_results():
@@ -281,7 +287,7 @@ def template_coffee():
 	choice = random.randrange(0, 1, 1)
 	item = ""
 	if choice == 0:
-		temp = random.choice(word_collections.nouns_singular)
+		temp = random.choice(word_collections.food_singular)
 		item = a_or_an(temp) + temp
 	else:
 		item =  random.choice(word_collections.concepts)
