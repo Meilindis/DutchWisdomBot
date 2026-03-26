@@ -100,7 +100,7 @@ def template_can_be():
 
 # No sorry
 def template_no_sorry():
-    return (rule() + "Don't apologise for being " + random.choice(word_collections.adjectives))
+    return (rule() + "Don't apologise \nfor being " + random.choice(word_collections.adjectives))
 
 # Reasons
 def template_reasons():
@@ -154,8 +154,9 @@ def template_no_need():
 
 # Potential
 def template_potential():
-    temp = random.choice(word_collections.adjectives)
-    return (horoscope() + "You have the potential\nto become " + a_or_an(temp) + " " + random.choice(word_collections.nouns_singular))
+    temp1 = random.choice(word_collections.adjectives)
+    temp2 = a_or_an(temp1) + temp1
+    return (horoscope() + "You have the potential\nto become " + temp2 + " " + random.choice(word_collections.nouns_singular) + ".\nSeriously. " + capitalize_first_letter_only(temp2) + ".")
 
 # Results
 def template_results():
@@ -198,7 +199,7 @@ def template_personality():
 def function_the_best():
     selected_word = random.choice(word_collections.nouns_singular)
     temp = random.choice(word_collections.adjectives)
-    return (rule() + "The best " + selected_word + " is " + a_or_an(temp) + temp + " " + selected_word)
+    return (rule() + "The best " + selected_word + "\nis " + a_or_an(temp) + temp + " " + selected_word)
 
 # Just be
 def template_be():
@@ -220,12 +221,11 @@ def template_higher():
 
 # More you
 def template_you_superlative():
-    temp = random.choice(word_collections.superlatives)
-    return (horoscope() + "You can be " + a_or_an(temp) + temp + " " + random.choice(word_collections.nouns_singular))
+    return (horoscope() + "You can be the " + random.choice(word_collections.superlatives) + " " + random.choice(word_collections.nouns_singular))
 
 # Never
 def template_never():
-    return (rule() + capitalize_first_letter_only(random.choice(word_collections.times)) + " stop " + random.choice(word_collections.situations))
+    return (rule() + capitalize_first_letter_only(random.choice(word_collections.times)) + " stop\n" + random.choice(word_collections.situations))
 
 # Needs
 def template_need():
@@ -246,7 +246,7 @@ def template_llap():
 
 # Why?
 def template_why():
-    return ("Why stop " + random.choice(word_collections.verbs_ing) + " if you're " + random.choice(word_collections.adjectives) + "?")
+    return ("Why stop " + random.choice(word_collections.verbs_ing) + "\nif you're " + random.choice(word_collections.adjectives) + "?")
 
 # Never
 def template_never_again():
@@ -261,7 +261,7 @@ def template_excuse():
 # Outweigh
 def template_outweigh():
     selected = random.choice(word_collections.nouns_plural)
-    return (rule() + "The " + selected + " of the " + random.choice(word_collections.nouns_plural) + "\n" + random.choice(word_collections.verbs) + " the " + selected + "\nof the " + random.choice(word_collections.nouns_plural))
+    return (rule() + "The " + selected + "\nof the " + random.choice(word_collections.nouns_plural) + "\n" + random.choice(word_collections.verbs) + " the " + selected + "\nof the " + random.choice(word_collections.nouns_plural))
 
 # Today
 def template_today():
@@ -275,9 +275,16 @@ def template_do_it():
 def template_gonna():
 	return (capitalize_first_letter_only(random.choice(word_collections.nouns_plural)) + " are gonna " + random.choice(word_collections.verbs) + " you!")
 
-# Remember
-def template_remember():
-    return ("Remember that " + random.choice(word_collections.nouns_plural) + "\nwill never let you down")
+# There's coffee...
+def template_coffee():
+	choice = random.randrange(0, 1, 1)
+	item = ""
+	if choice == 0:
+		temp = random.choice(word_collections.nouns_singular)
+		item = a_or_an(temp) + temp
+	else:
+		item =  random.choice(word_collections.concepts)
+	return ("There's " + item + " in that " + random.choice(word_collections.nouns_singular))
 
 # List of defined templates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 
@@ -336,5 +343,5 @@ template_list = [function_times_three,
                  template_today,
                  template_do_it,
                  template_gonna,
-                 template_remember]
+                 template_coffee]
 
