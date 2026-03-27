@@ -142,7 +142,6 @@ if __name__ == "__main__":
             layoutV.addWidget(self.nsfw_toggle)
             layoutV.addWidget(self.darkmode_toggle)
             layoutV.addWidget(self.button_export_quotes)
-            layoutV.addWidget(self.quote_field)
             layoutV.addWidget(self.button)
             
 

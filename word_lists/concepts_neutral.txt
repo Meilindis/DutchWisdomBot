@@ -37,6 +37,7 @@ loneliness
 loot
 mancala
 memory
+milk
 monopoly
 moonlight
 music
@@ -66,7 +67,9 @@ stalemate
 star dust
 sugar
 sunshine
+tea
 thyme
 yahtzee
 water
 wellness
+wine

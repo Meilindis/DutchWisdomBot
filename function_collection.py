@@ -187,7 +187,7 @@ def template_orders():
 
 # Family
 def template_family():
-    return (capitalize_first_letter_only(random.choice(word_collections.situations)) + "\nis pretty much like\n" + random.choice(word_collections.verbs_ing) + " your " + random.choice(word_collections.nouns_singular + word_collections.nouns_plural + word_collections.concepts))
+    return (capitalize_first_letter_only(random.choice(word_collections.situations)) + "\nis pretty much like\n" + random.choice(word_collections.verbs_ing) + " your " + random.choice(word_collections.nouns_singular + word_collections.concepts))
 
 # Truth
 def template_true():
@@ -291,7 +291,7 @@ def template_coffee():
 		item = a_or_an(temp) + temp
 	else:
 		item =  random.choice(word_collections.concepts)
-	return ("There's " + item + " in that " + random.choice(word_collections.nouns_singular))
+	return ("There's " + item + "\nin that " + random.choice(word_collections.nouns_singular))
 
 # List of defined templates (don't forget to add new templates here or they won't be used!)
 template_list = [function_times_three, 

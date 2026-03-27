@@ -41,11 +41,11 @@ slow
 soft
 spicy
 strange
-stone
 strong
 tender
+thick
+thin
 tough
-tin
 tricky
 weak
 weird
