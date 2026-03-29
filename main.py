@@ -189,6 +189,7 @@ if __name__ == "__main__":
             self.setCentralWidget(container)    
 
             self.quote_history = []
+            self.full_history = []
             self.selected_quote = 0
 
             self.darkmode_toggle.setChecked(True)
@@ -234,6 +235,7 @@ if __name__ == "__main__":
             font_name = os.path.join(os.path.join(current_dir, 'fonts'), font[0])
             font_custom_size = font[1]
             img = ImageText(image, background=(255, 255, 255, 200)) # 200 = alpha
+            self.full_history.append([self.quote, selected_image, font])
 
 
             if "\n" not in text:
