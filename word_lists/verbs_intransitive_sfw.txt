@@ -1,4 +1,6 @@
 age
+be
+be creative
 be quiet
 blend in
 cycle
@@ -17,13 +19,16 @@ play the guitar
 play the piano
 play the violin
 prosper
+rain
 rest
 retreat
 sleep
+snow
 struggle
 stutter
 swim
 take a shower
 take a walk
 touch grass
+travelling
 walk

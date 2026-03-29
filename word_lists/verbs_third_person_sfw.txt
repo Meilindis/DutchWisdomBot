@@ -4,6 +4,7 @@ cherishes
 cleans
 consumes
 cuts
+draws
 drinks
 eats
 finds
@@ -15,9 +16,11 @@ lifts up
 lies
 loves
 makes
+marries
 moves
 operates
 outweighs
+paints
 pets
 plays
 prepares

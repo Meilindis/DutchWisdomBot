@@ -4,6 +4,7 @@ cherish
 clean
 consume
 cut
+draw
 drink
 eat
 find
@@ -13,9 +14,11 @@ knit
 lift
 love
 make
+marry
 move
 operate
 outweigh
+paint
 pet
 play
 prepare

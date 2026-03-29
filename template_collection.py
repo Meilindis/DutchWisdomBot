@@ -32,7 +32,7 @@ def a_or_an(text):
     return article
 
 # Repeat a random verb three times
-def function_times_three():
+def template_times_three():
     current_verb = random.choice(word_collections.verbs)
     return (current_verb.capitalize() + ", " + current_verb + ", " + current_verb)
 
@@ -317,8 +317,29 @@ def template_diff_people():
 def template_our_part():
     return ("If we all do our part\nwe can make " + random.choice(word_collections.nouns_plural + word_collections.people_plural) + " " + random.choice(word_collections.verbs))
 
+# How to
+def template_how_to():
+    return (capitalize_first_letter_only(random.choice(word_collections.verbs + word_collections.verbs_intransitive)) + " " + random.choice(word_collections.adverbs))
+
+# You know it
+def template_you_know():
+    return ("If you know how to " + random.choice(word_collections.verbs) + " it,\nyou know how to " + random.choice(word_collections.verbs) + " it.")
+
+# Don't avoid
+def template_avoid():
+    return ("Any " + random.choice(word_collections.people_singular) + "\nwho avoids " + random.choice(word_collections.nouns_plural + word_collections.concepts) + "\n avoids " + random.choice(word_collections.nouns_plural + word_collections.concepts))
+
+# Behind
+def template_behind():
+    temp = random.choice(word_collections.adjectives)
+    return ("Behind every " + random.choice(word_collections.people_singular) + "\nstands\n" + a_or_an(temp) + temp + " " + random.choice(word_collections.people_singular))
+
+# Somebody
+def template_somebody():
+    return ("Somebody has to " + random.choice(word_collections.verbs + word_collections.verbs_intransitive) + ".\nBe that somebody.")
+
 # List of defined templates (don't forget to add new templates here or they won't be used!)
-template_list = [function_times_three, 
+template_list = [template_times_three, 
                  template_three_compliments, 
                  template_three_characteristics,
                  template_one_compliment, 
@@ -380,5 +401,11 @@ template_list = [function_times_three,
                  template_eufemism,
                  template_embrace,
                  template_diff_people,
-                 template_our_part]
+                 template_our_part,
+                 template_how_to,
+                 template_you_know,
+                 template_avoid,
+                 template_behind,
+                 template_somebody,
+                 ]
 
