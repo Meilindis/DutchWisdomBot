@@ -23,20 +23,21 @@ from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QVBoxLayout, QWidget, QLabel, QCheckBox, QHBoxLayout, QFileDialog, QMessageBox
 
 # Font list to randomly choose from: font name, font size that mostly fits
-font_collection = [['GalaferaMedium-V4xze.ttf', 26],
-                   ['LoveDays-2v7Oe.ttf', 26],
-                   ['CronusRound-KA6y.ttf', 32],
-                   ['Quaaykop-DYE1R.ttf', 30],
-                   ['Wonderbar-pALD.ttf', 26],
-                   ['HussarBold-7mRE.otf', 26],
-                   ['BiotripSerifBold-Jpo3K.ttf', 24],
-                   ['RomanticAdoreDemoRegular-5yGpj.ttf', 32],
-                   ['BazigBold-yYRV5.ttf', 30],
-                   ['ThisAppeal-FreeDemo.ttf', 32],
-                   ['HFPoet.ttf', 32],
-                   ['Bright Dusty.otf', 32],
-                   ['BeachFlower-Bold.otf', 30],
-                   ['Smooch Free Trial.otf', 32]
+font_collection = [
+                   ['SuperJoyful-lxwPq.ttf', 30], # Free for commercial use
+                   ['SuperChiby-BL62V.ttf', 30],
+                   ['MouldyCheeseRegular-WyMWG.ttf', 30],
+                   ['SparkyStonesRegular-BW6ld.ttf', 30],
+                   ['SuperLarky-nALLR.ttf', 28],
+                   ['Martius-LV9L4.ttf', 32],
+                   ['BorderWall-OG55o.otf', 30],
+                   ['SuperSalad-qZgvV.ttf', 30],
+                   ['MangabeyRegular-rgqVO.otf', 32],
+                   ['SuperChips-5yBYL.ttf', 30],
+                   ['AmberyGardenRegular-PKjGd.ttf', 30],
+                   ['Wiltype-9MA1y.ttf', 32],
+                   ['Excludeditalic-jEr99.ttf', 26],
+                   ['Playball-q6o1.ttf', 30]
                    ]
 
 # Image list: image name, text colour, placement, indent (x), starting height (y), whether or not extra indentation is necessary for multiline
